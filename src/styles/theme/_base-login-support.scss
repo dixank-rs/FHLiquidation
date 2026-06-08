@@ -1,0 +1,6 @@
+@use "./tokens" as tokens;
+
+html,
+body {
+  font-family: tokens.$theme-font-regular;
+}

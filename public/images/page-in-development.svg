@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Page in development</title>
+  <desc id="desc">Browser window with wireframe layout indicating a web page pending design</desc>
+  <rect width="360" height="260" rx="14" fill="#FAFAF8"/>
+
+  <!-- Browser window -->
+  <rect x="40" y="32" width="280" height="196" rx="10" fill="#FFFFFF" stroke="#E0E0DC" stroke-width="2"/>
+  <rect x="40" y="32" width="280" height="34" rx="10" fill="#F3F3F0"/>
+  <rect x="40" y="54" width="280" height="12" fill="#F3F3F0"/>
+  <circle cx="58" cy="49" r="5" fill="#FF8A80"/>
+  <circle cx="74" cy="49" r="5" fill="#FFD180"/>
+  <circle cx="90" cy="49" r="5" fill="#A5D6A7"/>
+  <rect x="108" y="44" width="132" height="10" rx="5" fill="#ECECE8"/>
+
+  <!-- Wireframe header -->
+  <rect x="56" y="78" width="88" height="10" rx="3" fill="#D36838" opacity="0.85"/>
+  <rect x="152" y="78" width="48" height="8" rx="2" fill="#E8E8E4"/>
+  <rect x="208" y="78" width="48" height="8" rx="2" fill="#E8E8E4"/>
+  <rect x="264" y="78" width="40" height="8" rx="2" fill="#E8E8E4"/>
+
+  <!-- Sidebar wireframe -->
+  <rect x="56" y="98" width="56" height="114" rx="6" fill="#F7F7F4" stroke="#ECECE8" stroke-width="1.5"/>
+  <rect x="64" y="108" width="40" height="6" rx="2" fill="#E0E0DC"/>
+  <rect x="64" y="122" width="36" height="6" rx="2" fill="#ECECE8"/>
+  <rect x="64" y="136" width="38" height="6" rx="2" fill="#ECECE8"/>
+  <rect x="64" y="150" width="32" height="6" rx="2" fill="#ECECE8"/>
+  <rect x="64" y="172" width="40" height="6" rx="2" fill="#ECECE8"/>
+
+  <!-- Main content wireframe -->
+  <rect x="122" y="98" width="182" height="114" rx="6" fill="#FFFFFF" stroke="#ECECE8" stroke-width="1.5"/>
+  <rect x="134" y="110" width="96" height="10" rx="3" fill="#F0E8E4"/>
+  <rect x="134" y="128" width="158" height="6" rx="2" fill="#ECECE8"/>
+  <rect x="134" y="140" width="148" height="6" rx="2" fill="#F1F1ED"/>
+  <rect x="134" y="152" width="138" height="6" rx="2" fill="#ECECE8"/>
+  <rect x="134" y="170" width="72" height="28" rx="5" fill="#FFF4EF" stroke="#D36838" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="214" y="170" width="72" height="28" rx="5" fill="#F7F7F4" stroke="#E0E0DC" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- Design tools -->
+  <g transform="translate(248, 188)">
+    <rect x="0" y="0" width="72" height="52" rx="8" fill="#FFFFFF" stroke="#E0E0DC" stroke-width="1.5"/>
+    <path d="M14 36L26 18L34 28L46 14" stroke="#D36838" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="46" cy="14" r="3" fill="#D36838"/>
+    <rect x="12" y="38" width="20" height="4" rx="2" fill="#ECECE8"/>
+    <rect x="36" y="38" width="24" height="4" rx="2" fill="#F0E8E4"/>
+  </g>
+
+  <!-- Cursor -->
+  <path d="M286 56L286 78L296 72L302 84L308 80L302 68L314 66Z" fill="#181512"/>
+  <path d="M286 56L286 78L296 72L302 84L308 80L302 68L314 66Z" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round"/>
+
+  <!-- Pending badge -->
+  <rect x="118" y="16" width="124" height="28" rx="14" fill="#D36838"/>
+  <circle cx="136" cy="30" r="4" fill="#FFFFFF"/>
+  <text x="148" y="34" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600">Pending</text>
+</svg>

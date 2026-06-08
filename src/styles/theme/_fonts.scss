@@ -1,0 +1,6 @@
+@use "./mixins" as mixins;
+
+@include mixins.theme-font-face("Muli-Bold", "/theme/fonts/Muli-Bold");
+@include mixins.theme-font-face("Muli-SemiBold", "/theme/fonts/Muli-SemiBold");
+@include mixins.theme-font-face("Muli", "/theme/fonts/Muli");
+@include mixins.theme-font-face("Muli-Light", "/theme/fonts/Muli-Light");

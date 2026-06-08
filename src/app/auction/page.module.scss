@@ -1,0 +1,141 @@
+@use "../../styles/theme/tokens" as tokens;
+
+.page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: tokens.$theme-secondary;
+}
+
+.main {
+  flex: 1;
+  padding: 120px 0 1.5rem;
+}
+
+.main :global(.container-fluid) {
+  padding: 0 120px;
+}
+
+.pageTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.pageTop h1 {
+  margin: 0;
+  font-family: tokens.$theme-font-bold;
+  font-size: 2rem;
+  color: tokens.$theme-dark;
+}
+
+.pageActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pageActions :global(.btn.btn-primary) {
+  color: #fff;
+  background-color: tokens.$theme-primary;
+  border-color: tokens.$theme-primary;
+}
+
+.pageActions :global(.btn.btn-primary:hover),
+.pageActions :global(.btn.btn-primary:focus) {
+  color: #fff;
+  background-color: #bb5c2f;
+  border-color: #bb5c2f;
+}
+
+.completedToggle {
+  margin: 0;
+}
+
+.completedToggle :global(.form-check-input) {
+  border: 2px solid #181512;
+}
+
+.contentBox {
+  padding: 1.15rem;
+  border-radius: 6px;
+  background: #fff;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.w75 {
+  width: 75px;
+}
+
+.w100 {
+  width: 100px;
+}
+
+.w150 {
+  width: 150px;
+}
+
+.auctionLink {
+  color: tokens.$theme-dark;
+  text-decoration: none;
+  font-family: tokens.$theme-font-semibold;
+}
+
+.auctionLink:hover {
+  color: tokens.$theme-primary;
+  text-decoration: underline;
+}
+
+.contentBox :global(thead) {
+  background: #f2f3f6;
+  border: 1px solid #e5e5e5;
+}
+
+.contentBox :global(.table) {
+  margin-bottom: 20px;
+  border: 1px solid #e5e5e5;
+}
+
+.contentBox :global(.table > :not(caption) > * > *) {
+  padding: 16px 20px;
+  border-bottom-color: #e5e5e5;
+}
+
+@media (width <= 1200px) {
+  .main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .main :global(.container-fluid) {
+    padding: 0 12px;
+  }
+}
+
+@media (width <= 768px) {
+  .main {
+    padding-top: 90px;
+  }
+
+  .pageTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pageActions {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pageActions :global(.btn) {
+    width: 100%;
+  }
+
+  .completedToggle {
+    width: 100%;
+  }
+}

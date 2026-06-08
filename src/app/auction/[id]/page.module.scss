@@ -1,0 +1,231 @@
+@use "../../../styles/theme/tokens" as tokens;
+
+.page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: tokens.$theme-secondary;
+}
+
+.main {
+  flex: 1;
+  padding: 120px 0 1.5rem;
+}
+
+.main :global(.container-fluid) {
+  padding: 0 120px;
+}
+
+.pageTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pageTop h1 {
+  margin: 0;
+  font-family: tokens.$theme-font-bold;
+  font-size: 2rem;
+  color: tokens.$theme-dark;
+}
+
+.contentBox {
+  padding: 1.15rem;
+  border-radius: 6px;
+  background: #fff;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  padding: 0.95rem 1.15rem;
+  color: #fff;
+  background: tokens.$theme-dark;
+  border-radius: 10px;
+}
+
+.topBar span {
+  display: block;
+  font-family: tokens.$theme-font-light;
+  font-size: 0.86rem;
+  opacity: 0.85;
+}
+
+.topBar strong {
+  display: block;
+  font-family: tokens.$theme-font-semibold;
+  font-size: 1.1rem;
+  word-break: break-all;
+}
+
+.contentBox :global(label) {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  font-family: tokens.$theme-font-semibold;
+}
+
+.inlineLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inlineLabel span {
+  color: tokens.$theme-primary;
+  font-size: 0.85rem;
+}
+
+.formRow {
+  margin-bottom: 0.1rem;
+}
+
+.drop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  border: 1px solid #d4daec;
+  border-radius: 5px;
+  color: #999;
+  font-size: 18px;
+  background: #ebebeb;
+  text-align: center;
+  padding: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.actions :global(.btn) {
+  min-width: 128px;
+}
+
+.actions :global(.btn.btn-primary) {
+  color: #fff;
+  background-color: tokens.$theme-primary;
+  border-color: tokens.$theme-primary;
+}
+
+.actions :global(.btn.btn-primary:hover),
+.actions :global(.btn.btn-primary:focus) {
+  color: #fff;
+  background-color: #bb5c2f;
+  border-color: #bb5c2f;
+}
+
+.saveCheck {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0 0.25rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.saveCheck :global(.form-check-input) {
+  border: 2px solid #181512;
+  border-radius: 3px;
+  margin: 0;
+}
+
+.saveCheck :global(.form-check-label) {
+  margin: 0;
+  padding-top: 1px;
+}
+
+.lineBreak {
+  display: block;
+}
+
+.w75 {
+  width: 75px;
+}
+
+.w100 {
+  width: 100px;
+}
+
+.w150 {
+  width: 150px;
+}
+
+.contentBox :global(hr) {
+  border-color: tokens.$theme-secondary;
+  opacity: 1;
+}
+
+.contentBox :global(thead) {
+  background: #f2f3f6;
+  border: 1px solid #e5e5e5;
+}
+
+.contentBox :global(.table) {
+  margin-bottom: 20px;
+  border: 1px solid #e5e5e5;
+}
+
+.contentBox :global(.table > :not(caption) > * > *) {
+  padding: 16px 20px;
+  border-bottom-color: #e5e5e5;
+}
+
+@media (width <= 1200px) {
+  .main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .main :global(.container-fluid) {
+    padding: 0 12px;
+  }
+
+  .topBar {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+@media (width <= 768px) {
+  .main {
+    padding-top: 90px;
+  }
+
+  .pageTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topBar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .actions :global(.btn) {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .saveCheck {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (width <= 520px) {
+  .topBar {
+    grid-template-columns: 1fr;
+  }
+}
