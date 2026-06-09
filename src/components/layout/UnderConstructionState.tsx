@@ -1,3 +1,5 @@
+import { assetPath } from "@/config/site";
+
 type UnderConstructionStateProps = {
   title?: string;
   description?: string;
@@ -20,7 +22,7 @@ export default function UnderConstructionState({
         .join(" ")}
     >
       <img
-        src="/images/page-in-development.svg"
+        src={assetPath("/images/page-in-development.svg")}
         alt="Web page wireframe pending design"
         width={360}
         height={260}

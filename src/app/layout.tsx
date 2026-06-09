@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import ScrollToTopOnNavigate from "@/components/layout/ScrollToTopOnNavigate";
 import StripExtensionHydrationScript from "@/components/StripExtensionHydrationScript";
+import { assetPath } from "@/config/site";
 import "./globals.css";
 import "../styles/index.scss";
 
@@ -16,18 +17,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dixank-rs.github.io"),
   title: "FH Liquidation Auction Tool",
   description: "FH Liquidation Auction Tool - Login to manage your auction activities",
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' }
+      { url: assetPath("/favicon.ico"), sizes: "any" },
+      { url: assetPath("/favicon.ico"), sizes: "32x32", type: "image/x-icon" },
     ],
-    apple: '/touch-icon.png',
-    shortcut: '/favicon.ico',
+    apple: assetPath("/touch-icon.png"),
+    shortcut: assetPath("/favicon.ico"),
   },
   openGraph: {
-    images: ['/img_social_og.jpg'],
+    images: [assetPath("/img_social_og.jpg")],
   },
 };
 
@@ -43,8 +45,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/touch-icon.png" />
+        <link rel="icon" href={assetPath("/favicon.ico")} sizes="any" />
+        <link rel="apple-touch-icon" href={assetPath("/touch-icon.png")} />
       </head>
       <body suppressHydrationWarning>
         <StripExtensionHydrationScript />

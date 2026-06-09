@@ -1,6 +1,7 @@
 "use client";
 
 import { IconPinVisibility } from "@/components/common/icons";
+import { assetPath } from "@/config/site";
 import { FormEvent, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -70,7 +71,7 @@ export default function LoginForm() {
                 <div className="mx-auto w-full max-w-[550px] rounded-3xl border border-[#cbcbcb] bg-[#e0e0db] p-3 sm:p-12">
                   <div className="mb-3 text-center">
                     <Image
-                      src="/theme/images/logo.png"
+                      src={assetPath("/theme/images/logo.png")}
                       alt="FH Liquidation Auction Tool"
                       width={300}
                       height={80}

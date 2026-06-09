@@ -2,6 +2,7 @@
 
 import { IconChevronDown, IconClose, IconMenu } from "@/components/common/icons";
 import AppContainer from "@/components/layout/AppContainer";
+import { assetPath } from "@/config/site";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -285,7 +286,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
       <AppContainer className="relative z-10 flex h-[var(--fhi-header-height)] items-center justify-between gap-3">
         <Link href="/auction" className="inline-flex shrink-0 items-center" aria-label="FH Liquidation Auction Tool">
           <Image
-            src="/theme/images/logo.png"
+            src={assetPath("/theme/images/logo.png")}
             alt="FH Liquidation Auction Tool"
             width={216}
             height={106}

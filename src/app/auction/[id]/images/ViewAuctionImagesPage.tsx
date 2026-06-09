@@ -8,13 +8,14 @@ import AppContainer, { contentPanelClass } from "@/components/layout/AppContaine
 import PageHeader from "@/components/layout/PageHeader";
 import { IconChevronLeft, IconChevronRight, IconClose, IconZoomIn } from "@/components/common/icons";
 import PageLayout from "@/components/layout/PageLayout";
+import { assetPath } from "@/config/site";
 
 const IMAGE_SRCS = [
-  "/theme/images/v-img.jpg",
-  "/theme/images/v-img1.jpg",
-  "/theme/images/v-img2.jpg",
-  "/theme/images/v-img3.jpg",
-  "/theme/images/v-img4.jpg",
+  assetPath("/theme/images/v-img.jpg"),
+  assetPath("/theme/images/v-img1.jpg"),
+  assetPath("/theme/images/v-img2.jpg"),
+  assetPath("/theme/images/v-img3.jpg"),
+  assetPath("/theme/images/v-img4.jpg"),
 ] as const;
 
 const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
