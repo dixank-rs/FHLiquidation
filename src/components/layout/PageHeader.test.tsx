@@ -2,22 +2,21 @@ import PageHeader from "@/components/layout/PageHeader";
 import { render, screen } from "@testing-library/react";
 
 describe("PageHeader responsive layout", () => {
-  it("renders the page title", () => {
+  it("renders responsive left-aligned page title sizing", () => {
     render(<PageHeader title="Select Auction" />);
-    expect(screen.getByRole("heading", { level: 1, name: "Select Auction" })).toBeInTheDocument();
+
+    const heading = screen.getByRole("heading", { level: 1, name: "Select Auction" });
+    expect(heading).toHaveClass("text-left", "text-xl", "sm:text-2xl", "lg:text-[1.75rem]");
   });
 
-  it("uses stacked mobile layout classes and wraps long titles", () => {
+  it("keeps title left and actions on the right with vertical alignment", () => {
     const { container } = render(
-      <PageHeader
-        title="Import Manifest With A Very Long Title"
-        actions={<button type="button">Instructions</button>}
-      />,
+      <PageHeader title="View Images" actions={<button type="button">Back</button>} />,
     );
 
-    const header = container.querySelector("div");
-    expect(header).toHaveClass("flex-col", "sm:flex-row");
-    expect(screen.getByRole("heading", { level: 1 })).toHaveClass("break-words", "min-w-0");
-    expect(screen.getByRole("button", { name: "Instructions" })).toBeInTheDocument();
+    const header = container.firstElementChild;
+    expect(header).toHaveClass("items-center", "justify-between");
+    expect(screen.getByRole("heading", { level: 1, name: "View Images" })).toHaveClass("text-left");
+    expect(screen.getByRole("button", { name: "Back" })).toBeInTheDocument();
   });
 });

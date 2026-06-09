@@ -526,37 +526,45 @@ export default function AuctionDetailPage() {
 
             <div className="flex justify-center">
               <div className="w-full min-w-0">
-                <FormActions className="my-3">
-                  <Button type="submit" variant="primary" layout="actionBar">
-                    Save
-                  </Button>
-                  <Button type="button" variant="secondary" layout="actionBar" onClick={resetForm}>
-                    Reset
-                  </Button>
-                  <Button type="button" variant="primary" layout="actionBar">
-                    Duplicate Last
-                  </Button>
-                  <Button type="button" variant="primary" layout="actionBar">
-                    Export Auction
-                  </Button>
-                  <Button type="button" variant="primary" layout="actionBar">
-                    Mark Complete
-                  </Button>
-                  <ButtonLink
-                    href={`/auction/${auctionId}/images`}
-                    variant="primary"
-                    layout="actionBar"
-                    onClick={(e) => e.stopPropagation()}
+                <div className="my-3 flex flex-col items-center gap-2.5 xl:flex-row xl:flex-wrap xl:items-center xl:justify-center xl:gap-3">
+                  <FormActions className="my-0">
+                    <Button type="submit" variant="primary" layout="actionBar">
+                      Save
+                    </Button>
+                    <Button type="button" variant="secondary" layout="actionBar" onClick={resetForm}>
+                      Reset
+                    </Button>
+                    <Button type="button" variant="primary" layout="actionBar">
+                      Duplicate Last
+                    </Button>
+                    <Button type="button" variant="primary" layout="actionBar">
+                      Export Auction
+                    </Button>
+                    <Button type="button" variant="primary" layout="actionBar">
+                      Mark Complete
+                    </Button>
+                    <ButtonLink
+                      href={`/auction/${auctionId}/images`}
+                      variant="primary"
+                      layout="actionBar"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View Images
+                    </ButtonLink>
+                  </FormActions>
+                  <label
+                    htmlFor="saveItem"
+                    className="inline-flex cursor-pointer items-center gap-2 text-[15px] text-[#181512]"
+                    style={labelFont}
                   >
-                    View Images
-                  </ButtonLink>
-                  <div className="col-span-2 flex items-center justify-center xl:col-span-auto xl:w-[12rem]">
-                    <input className="h-4 w-4 cursor-pointer accent-[#d36838]" type="checkbox" id="saveItem" />
-                    <label className="ms-2 cursor-pointer" htmlFor="saveItem" style={labelFont}>
-                      Save Item
-                    </label>
-                  </div>
-                </FormActions>
+                    <input
+                      id="saveItem"
+                      type="checkbox"
+                      className="h-4 w-4 cursor-pointer accent-[#d36838]"
+                    />
+                    Save Item
+                  </label>
+                </div>
               </div>
             </div>
           </form>

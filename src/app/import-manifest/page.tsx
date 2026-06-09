@@ -3,9 +3,7 @@
 import ImportManifestItemsTable from "@/app/import-manifest/ImportManifestItemsTable";
 import { ColumnConfig } from "@/components/common/DataTable";
 import { Button, FormActions, ModalActions } from "@/components/common/Button";
-import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
-import PageHeader from "@/components/layout/PageHeader";
-import { IconClose } from "@/components/common/icons";
+import { IconClose, IconHelp } from "@/components/common/icons";
 import PageLayout from "@/components/layout/PageLayout";
 import { formatDisplayDate } from "@/data/mockPurchaseCodes";
 import {
@@ -247,7 +245,8 @@ export default function ImportManifestPage() {
         <PageHeader
           title="Import Manifest"
           actions={
-            <Button type="button" variant="outline" size="sm" className="min-w-[7.5rem]" onClick={() => setShowInstructions(true)}>
+            <Button type="button" variant="outline" size="sm" className="shrink-0 gap-1" onClick={() => setShowInstructions(true)}>
+              <IconHelp className="shrink-0 text-current" size={18} />
               Instructions
             </Button>
           }

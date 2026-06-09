@@ -11,7 +11,7 @@ export default function Footer() {
           Copyright &copy; 2026 FH Liquidation Auction Tool All Rights Reserved.
           <br />
           Powered by{" "}
-          <a className="text-[#f6f396] no-underline" href="https://www.devdigital.com/" target="_blank" rel="noopener">
+          <a className="text-[#d36838] no-underline" href="https://www.devdigital.com/" target="_blank" rel="noopener">
             Navam Tech
           </a>
         </div>

@@ -66,6 +66,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     <button
       ref={ref}
       type={type}
+      suppressHydrationWarning
       className={cn(baseClass, variantClass[variant], sizeClass[size], layoutClass[layout], className)}
       style={{ ...boldFont, ...style }}
       {...props}
@@ -94,6 +95,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
+      suppressHydrationWarning
       className={cn(baseClass, variantClass[variant], sizeClass[size], layoutClass[layout], className)}
       style={{ ...boldFont, ...style }}
       {...props}

@@ -2,7 +2,7 @@ import Script from "next/script";
 
 /**
  * Removes attributes injected by browser extensions (e.g. McAfee WebAdvisor's
- * fdprocessedid) before React hydrates, avoiding spurious hydration warnings in dev.
+ * fdprocessedid) before and during React hydration.
  */
 const STRIP_SCRIPT = `
 (function () {
@@ -15,18 +15,21 @@ const STRIP_SCRIPT = `
     });
   }
   strip();
+  if (typeof document !== "undefined") {
+    document.addEventListener("DOMContentLoaded", strip, { once: true });
+  }
   if (typeof MutationObserver === "undefined") return;
-  var obs = new MutationObserver(function (records) {
-    records.forEach(function (record) {
-      if (record.type === "attributes" && ATTRS.indexOf(record.attributeName) >= 0) {
-        record.target.removeAttribute(record.attributeName);
-      }
-    });
+  var obs = new MutationObserver(function () {
+    strip();
   });
   var root = document.documentElement;
   if (!root) return;
   obs.observe(root, { subtree: true, attributes: true, attributeFilter: ATTRS });
-  window.addEventListener("load", function () { obs.disconnect(); }, { once: true });
+  var disconnect = function () {
+    obs.disconnect();
+  };
+  window.addEventListener("load", strip, { once: true });
+  setTimeout(disconnect, 15000);
 })();
 `.trim();
 

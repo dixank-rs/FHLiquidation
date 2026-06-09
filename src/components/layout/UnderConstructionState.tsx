@@ -29,7 +29,7 @@ export default function UnderConstructionState({
         className="h-auto w-[min(72vw,360px)] max-w-full shrink-0 sm:w-[min(64vw,340px)] md:w-[min(52vw,360px)]"
       />
       <div className="w-full min-w-0 max-w-md px-1 sm:px-0">
-        <h2 className="m-0 break-words text-lg font-semibold leading-snug text-[#181512] sm:text-xl md:text-[1.35rem]">
+        <h2 className="m-0 break-words text-center text-base font-bold leading-snug text-[#181512] sm:text-lg lg:text-2xl">
           {title}
         </h2>
         <p className="mb-0 mt-2 break-words text-sm leading-relaxed text-[#666] sm:mt-2.5 sm:text-[15px]">

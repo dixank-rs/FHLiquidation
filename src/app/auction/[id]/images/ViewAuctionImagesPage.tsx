@@ -7,6 +7,7 @@ import BackLink from "@/components/common/BackLink";
 import { Button } from "@/components/common/Button";
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
+import SectionTitle from "@/components/layout/SectionTitle";
 import { IconChevronLeft, IconChevronRight, IconClose, IconZoomIn } from "@/components/common/icons";
 import PageLayout from "@/components/layout/PageLayout";
 import { assetPath } from "@/config/site";
@@ -23,6 +24,9 @@ const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
 
 const galleryGridClass =
   "gallery grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6";
+
+const galleryActionBtnClass =
+  "w-[calc(50%-0.375rem)] max-w-[12rem] shrink-0";
 
 type GalleryTileProps = {
   src: string;
@@ -57,26 +61,22 @@ function GalleryTile({ src, alt, imageIndex, onOpen, actions }: GalleryTileProps
         </span>
       </button>
       <div
-        className={`mt-3 grid gap-2 sm:gap-3 ${
-          actions === "primary-delete"
-            ? "grid-cols-2 lg:flex lg:flex-row lg:flex-wrap lg:items-center lg:justify-center lg:gap-3"
-            : "grid-cols-1 lg:flex lg:justify-center"
-        }`}
+        className="mt-3 flex flex-wrap items-stretch justify-center gap-2 sm:gap-3"
         onClick={(e) => e.stopPropagation()}
         onKeyDown={(e) => e.stopPropagation()}
         role="presentation"
       >
         {actions === "primary-delete" ? (
           <>
-            <Button type="button" variant="secondary" layout="form" className="lg:w-auto">
+            <Button type="button" variant="secondary" layout="inline" className={galleryActionBtnClass}>
               Make Primary
             </Button>
-            <Button type="button" variant="primary" layout="form" className="lg:w-auto">
+            <Button type="button" variant="primary" layout="inline" className={galleryActionBtnClass}>
               Delete
             </Button>
           </>
         ) : (
-          <Button type="button" variant="primary" layout="form" className="lg:min-w-[120px] lg:w-auto">
+          <Button type="button" variant="primary" layout="inline" className={galleryActionBtnClass}>
             Delete
           </Button>
         )}
@@ -95,13 +95,7 @@ type ImageSectionProps = {
 function ImageSection({ id, title, children, className = "" }: ImageSectionProps) {
   return (
     <section id={id} aria-labelledby={`${id}-heading`} className={`scroll-mt-28 ${className}`}>
-      <h2
-        id={`${id}-heading`}
-        className="mb-4 border-b border-[#e9ecef] pb-3 text-lg font-bold text-[#181512] sm:mb-5 sm:text-2xl"
-        style={boldFont}
-      >
-        {title}
-      </h2>
+      <SectionTitle id={`${id}-heading`}>{title}</SectionTitle>
       {children}
     </section>
   );
