@@ -1,6 +1,7 @@
 "use client";
 
 import { IconPinVisibility } from "@/components/common/icons";
+import { Button } from "@/components/common/Button";
 import { formConfig } from "@/config/auth.config";
 import { assetPath } from "@/config/site";
 import { Lock, Mail } from "lucide-react";
@@ -175,15 +176,9 @@ export default function LoginForm() {
                 </label>
               </div>
 
-              <button
-                type="submit"
-                id="btnSubmit"
-                className="w-full rounded-lg border border-[#d36838] bg-[#d36838] px-5 py-2.5 text-white transition-colors hover:border-[#bb5c2f] hover:bg-[#bb5c2f] focus:border-[#bb5c2f] focus:bg-[#bb5c2f] disabled:cursor-not-allowed disabled:border-[#e0e0db] disabled:bg-[#e0e0db] disabled:text-[#6c757d] sm:py-3"
-                style={boldFont}
-                disabled={loading}
-              >
+              <Button type="submit" id="btnSubmit" variant="primary" layout="block" disabled={loading}>
                 Login &rarr;
-              </button>
+              </Button>
 
               <div className="mt-3 border-t border-[#ececea] pt-2.5 text-center text-xs leading-relaxed text-[#8a8680] sm:pt-3" style={semiBoldFont}>
                 {formConfig.branding.copyright}

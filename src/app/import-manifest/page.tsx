@@ -2,6 +2,7 @@
 
 import ImportManifestItemsTable from "@/app/import-manifest/ImportManifestItemsTable";
 import { ColumnConfig } from "@/components/common/DataTable";
+import { Button, FormActions, ModalActions } from "@/components/common/Button";
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
 import { IconClose } from "@/components/common/icons";
@@ -34,20 +35,6 @@ const selectBaseClass =
 
 const textareaClass =
   "w-full resize-y rounded-[5px] border border-[#ced4da] bg-white px-3 py-[0.7rem] text-[#181512] outline-none focus:border-[#d36838] focus:ring-2 focus:ring-[#d36838]/25";
-
-const primaryBtnClass =
-  "inline-flex cursor-pointer items-center justify-center rounded-[6px] border border-transparent bg-[#d36838] px-5 py-[7px] text-base leading-normal text-white no-underline transition-colors hover:bg-[#bb5c2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d36838] disabled:cursor-not-allowed disabled:opacity-60";
-
-const darkBtnClass =
-  "inline-flex cursor-pointer items-center justify-center rounded-[6px] border border-transparent bg-[#181512] px-5 py-[7px] text-base leading-normal text-white transition-colors hover:bg-[#2a2825] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#181512]";
-
-const instructionsBtnClass =
-  "inline-flex h-8 min-w-[7.5rem] cursor-pointer items-center justify-center rounded-[6px] border border-[#d36838] bg-white px-3 text-center text-sm leading-none text-[#d36838] transition-colors hover:bg-[#fdf6f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d36838]";
-
-const actionBtnLayout =
-  "inline-flex h-full min-h-[38px] w-full items-center justify-center whitespace-nowrap text-center px-3 py-[7px] sm:px-5 xl:w-auto";
-const primaryActionBtnClass = `${actionBtnLayout} cursor-pointer rounded-[6px] border border-transparent bg-[#d36838] text-base leading-normal text-white no-underline transition-colors hover:bg-[#bb5c2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d36838] disabled:cursor-not-allowed disabled:opacity-60`;
-const darkActionBtnClass = `${actionBtnLayout} cursor-pointer rounded-[6px] border border-transparent bg-[#181512] text-base leading-normal text-white transition-colors hover:bg-[#2a2825] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#181512]`;
 
 const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
 
@@ -260,14 +247,9 @@ export default function ImportManifestPage() {
         <PageHeader
           title="Import Manifest"
           actions={
-            <button
-              type="button"
-              className={instructionsBtnClass}
-              style={boldFont}
-              onClick={() => setShowInstructions(true)}
-            >
+            <Button type="button" variant="outline" size="sm" className="min-w-[7.5rem]" onClick={() => setShowInstructions(true)}>
               Instructions
-            </button>
+            </Button>
           }
         />
 
@@ -348,42 +330,32 @@ export default function ImportManifestPage() {
                 tabIndex={-1}
               />
 
-              <div className="mb-6 grid grid-cols-1 items-stretch gap-2 sm:grid-cols-2 sm:gap-3 xl:flex xl:flex-row xl:flex-wrap xl:items-center xl:justify-center xl:gap-3">
-                <button
-                  type="button"
-                  className={primaryActionBtnClass}
-                  style={boldFont}
-                  onClick={handleChooseManifestClick}
-                >
+              <FormActions className="mb-6">
+                <Button type="button" variant="primary" layout="actionBar" onClick={handleChooseManifestClick}>
                   Choose Manifest
-                </button>
-                <button
+                </Button>
+                <Button
                   type="button"
-                  className={primaryActionBtnClass}
-                  style={boldFont}
+                  variant="primary"
+                  layout="actionBar"
                   onClick={handleFinalizeManifest}
                   disabled={!canFinalize}
                 >
                   Finalize Manifest
-                </button>
-                <button
+                </Button>
+                <Button
                   type="button"
-                  className={primaryActionBtnClass}
-                  style={boldFont}
+                  variant="primary"
+                  layout="actionBar"
                   onClick={handleDownloadExcel}
                   disabled={!canDownload}
                 >
                   Download Excel
-                </button>
-                <button
-                  type="button"
-                  className={darkActionBtnClass}
-                  style={boldFont}
-                  onClick={resetAll}
-                >
+                </Button>
+                <Button type="button" variant="secondary" layout="actionBar" onClick={resetAll}>
                   Reset
-                </button>
-              </div>
+                </Button>
+              </FormActions>
             </form>
 
             <hr className="my-8 border-[#dee2e6]" />
@@ -503,16 +475,11 @@ export default function ImportManifestPage() {
               </div>
             </div>
 
-            <div className="flex shrink-0 justify-end border-t border-[#dee2e6] px-4 py-3">
-              <button
-                type="button"
-                className={`${primaryBtnClass} px-5`}
-                style={boldFont}
-                onClick={() => setShowInstructions(false)}
-              >
+            <ModalActions>
+              <Button type="button" variant="primary" size="sm" onClick={() => setShowInstructions(false)}>
                 Close
-              </button>
-            </div>
+              </Button>
+            </ModalActions>
           </div>
         </div>
       ) : null}

@@ -3,6 +3,7 @@
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
 import PageLayout from "@/components/layout/PageLayout";
+import { Button, FormActions } from "@/components/common/Button";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -119,23 +120,14 @@ export default function NewAuctionPage() {
                     ) : null}
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 sm:gap-3 xl:flex xl:flex-row xl:flex-wrap xl:items-center xl:justify-center xl:gap-3">
-                    <button
-                      type="submit"
-                      className="inline-flex w-full cursor-pointer items-center justify-center rounded-[6px] border border-transparent bg-[#d36838] px-5 py-[7px] text-base leading-normal text-white no-underline transition-colors hover:bg-[#bb5c2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d36838] md:px-5 md:py-[7px] xl:w-auto"
-                      style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
-                    >
-                      Submit
-                    </button>
-                    <button
-                      type="button"
-                      className="inline-flex w-full cursor-pointer items-center justify-center rounded-[6px] border border-transparent bg-[#181512] px-5 py-[7px] text-base leading-normal text-white transition-colors hover:bg-[#2a2825] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#181512] xl:w-auto"
-                      style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
-                      onClick={resetForm}
-                    >
+                  <FormActions className="grid-cols-2">
+                    <Button type="submit" variant="primary" layout="form">
+                      Save
+                    </Button>
+                    <Button type="button" variant="secondary" layout="form" onClick={resetForm}>
                       Reset
-                    </button>
-                  </div>
+                    </Button>
+                  </FormActions>
                 </form>
               </div>
             </div>

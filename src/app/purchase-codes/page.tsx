@@ -1,6 +1,7 @@
 "use client";
 
 import DataTable, { ColumnConfig } from "@/components/common/DataTable";
+import { Button, FormActions, ModalActions } from "@/components/common/Button";
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
 import { IconClose } from "@/components/common/icons";
@@ -37,12 +38,6 @@ const checkboxClass =
 
 const filterToolbarCheckboxClass =
   "h-[18px] w-[18px] cursor-pointer rounded-[3px] border border-[#999] bg-white accent-[#d36838]";
-
-const primaryBtnClass =
-  "inline-flex cursor-pointer items-center justify-center rounded-[6px] border border-transparent bg-[#d36838] px-5 py-[7px] text-base leading-normal text-white no-underline transition-colors hover:bg-[#bb5c2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d36838]";
-
-const darkBtnClass =
-  "inline-flex cursor-pointer items-center justify-center rounded-[6px] border border-transparent bg-[#181512] px-5 py-[7px] text-base leading-normal text-white transition-colors hover:bg-[#2a2825] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#181512]";
 
 const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
 
@@ -525,29 +520,19 @@ export default function PurchaseCodesPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 xl:flex xl:flex-row xl:flex-wrap xl:items-center xl:justify-center xl:gap-3">
-                  <button type="submit" className={`${primaryBtnClass} w-full xl:w-auto`} style={boldFont}>
+                <FormActions>
+                  <Button type="submit" variant="primary" layout="form">
                     {editId ? "Update" : "Save"}
-                  </button>
+                  </Button>
                   {editId ? (
-                    <button
-                      type="button"
-                      className={`${primaryBtnClass} w-full xl:w-auto`}
-                      style={boldFont}
-                      onClick={handleCloseDealCode}
-                    >
+                    <Button type="button" variant="primary" layout="form" onClick={handleCloseDealCode}>
                       Close Deal Code
-                    </button>
+                    </Button>
                   ) : null}
-                  <button
-                    type="button"
-                    className={`${darkBtnClass} w-full xl:w-auto`}
-                    style={boldFont}
-                    onClick={resetForm}
-                  >
+                  <Button type="button" variant="secondary" layout="form" onClick={resetForm}>
                     Reset
-                  </button>
-                </div>
+                  </Button>
+                </FormActions>
               </form>
             </div>
 
@@ -556,14 +541,14 @@ export default function PurchaseCodesPage() {
             <div className="mb-4 flex flex-col items-start justify-end gap-3 sm:flex-row sm:items-center">
               <div className="flex flex-wrap items-center gap-4">
                 {selectedIds.size > 0 ? (
-                  <button
+                  <Button
                     type="button"
-                    className={`${primaryBtnClass} px-4 py-[6px] text-[14px]`}
-                    style={boldFont}
+                    variant="primary"
+                    size="sm"
                     onClick={() => setStatusModal(showInactiveView ? "mark-active" : "mark-inactive")}
                   >
                     {showInactiveView ? "Mark Active" : "Mark Inactive"}
-                  </button>
+                  </Button>
                 ) : null}
                 <div className="flex items-center gap-2">
                   <input
@@ -631,19 +616,14 @@ export default function PurchaseCodesPage() {
                 <strong>{statusModal === "mark-active" ? "ACTIVE" : "INACTIVE"}</strong>?
               </p>
             </div>
-            <div className="flex justify-end gap-2 border-t border-[#dee2e6] px-4 py-3">
-              <button
-                type="button"
-                className={`${primaryBtnClass} px-4`}
-                style={boldFont}
-                onClick={() => setStatusModal(null)}
-              >
-                Close
-              </button>
-              <button type="button" className={`${darkBtnClass} px-4`} style={boldFont} onClick={confirmBulkStatusChange}>
+            <ModalActions>
+              <Button type="button" variant="secondary" size="sm" onClick={() => setStatusModal(null)}>
+                Cancel
+              </Button>
+              <Button type="button" variant="primary" size="sm" onClick={confirmBulkStatusChange}>
                 Confirm
-              </button>
-            </div>
+              </Button>
+            </ModalActions>
           </div>
         </div>
       ) : null}

@@ -7,6 +7,7 @@ import AppContainer, { contentPanelClass } from "@/components/layout/AppContaine
 import PageHeader from "@/components/layout/PageHeader";
 import { IconEdit, IconFileText } from "@/components/common/icons";
 import DataTable, { ColumnConfig } from "@/components/common/DataTable";
+import { Button, ButtonLink, FormActions } from "@/components/common/Button";
 import PageLayout from "@/components/layout/PageLayout";
 
 type AuctionItem = {
@@ -43,11 +44,6 @@ const mockTableData: AuctionItem[] = [
 
 const labelFont = { fontFamily: "Muli-SemiBold, Arial, sans-serif" } as const;
 const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
-
-const actionBtnLayout =
-  "inline-flex h-full min-h-[38px] w-full items-center justify-center whitespace-nowrap text-center sm:px-5 xl:w-auto";
-const primaryActionBtnClass = `${actionBtnLayout} rounded-md border border-[#d36838] bg-[#d36838] px-3 py-[7px] text-white transition-colors hover:border-[#bb5c2f] hover:bg-[#bb5c2f]`;
-const darkActionBtnClass = `${actionBtnLayout} rounded-md border border-[#181512] bg-[#181512] px-3 py-[7px] text-white transition-colors hover:border-[#000] hover:bg-[#000]`;
 
 type FormFieldKey = "category" | "condition" | "unitCost" | "title" | "link" | "genericDescription";
 
@@ -530,37 +526,37 @@ export default function AuctionDetailPage() {
 
             <div className="flex justify-center">
               <div className="w-full min-w-0">
-                <div className="my-3 grid grid-cols-1 items-stretch gap-2 sm:grid-cols-2 sm:gap-3 xl:flex xl:flex-row xl:flex-wrap xl:items-center xl:justify-center xl:gap-3">
-                  <button type="submit" className={primaryActionBtnClass} style={boldFont}>
-                    Submit
-                  </button>
-                  <button type="button" className={darkActionBtnClass} style={boldFont} onClick={resetForm}>
+                <FormActions className="my-3">
+                  <Button type="submit" variant="primary" layout="actionBar">
+                    Save
+                  </Button>
+                  <Button type="button" variant="secondary" layout="actionBar" onClick={resetForm}>
                     Reset
-                  </button>
-                  <button type="button" className={primaryActionBtnClass} style={boldFont}>
+                  </Button>
+                  <Button type="button" variant="primary" layout="actionBar">
                     Duplicate Last
-                  </button>
-                  <button type="button" className={primaryActionBtnClass} style={boldFont}>
+                  </Button>
+                  <Button type="button" variant="primary" layout="actionBar">
                     Export Auction
-                  </button>
-                  <button type="button" className={primaryActionBtnClass} style={boldFont}>
+                  </Button>
+                  <Button type="button" variant="primary" layout="actionBar">
                     Mark Complete
-                  </button>
-                  <Link
+                  </Button>
+                  <ButtonLink
                     href={`/auction/${auctionId}/images`}
-                    className={`${primaryActionBtnClass} no-underline`}
-                    style={boldFont}
+                    variant="primary"
+                    layout="actionBar"
                     onClick={(e) => e.stopPropagation()}
                   >
                     View Images
-                  </Link>
-                  <div className="col-span-2 flex items-center justify-center xl:col-span-1">
+                  </ButtonLink>
+                  <div className="col-span-2 flex items-center justify-center xl:col-span-auto xl:w-[12rem]">
                     <input className="h-4 w-4 cursor-pointer accent-[#d36838]" type="checkbox" id="saveItem" />
                     <label className="ms-2 cursor-pointer" htmlFor="saveItem" style={labelFont}>
                       Save Item
                     </label>
                   </div>
-                </div>
+                </FormActions>
               </div>
             </div>
           </form>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 import BackLink from "@/components/common/BackLink";
+import { Button } from "@/components/common/Button";
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
 import { IconChevronLeft, IconChevronRight, IconClose, IconZoomIn } from "@/components/common/icons";
@@ -19,12 +20,6 @@ const IMAGE_SRCS = [
 ] as const;
 
 const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
-
-const darkBtnClass =
-  "inline-flex min-h-[44px] w-full items-center justify-center rounded-md border border-[#181512] bg-[#181512] px-4 py-2 text-sm text-white transition-colors hover:border-black hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#181512] sm:text-base lg:w-auto";
-
-const primaryBtnClass =
-  "inline-flex min-h-[44px] w-full items-center justify-center rounded-md border border-[#d36838] bg-[#d36838] px-4 py-2 text-sm text-white transition-colors hover:border-[#bb5c2f] hover:bg-[#bb5c2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d36838] sm:text-base lg:w-auto";
 
 const galleryGridClass =
   "gallery grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6";
@@ -73,17 +68,17 @@ function GalleryTile({ src, alt, imageIndex, onOpen, actions }: GalleryTileProps
       >
         {actions === "primary-delete" ? (
           <>
-            <button type="button" className={darkBtnClass} style={boldFont}>
+            <Button type="button" variant="secondary" layout="form" className="lg:w-auto">
               Make Primary
-            </button>
-            <button type="button" className={primaryBtnClass} style={boldFont}>
+            </Button>
+            <Button type="button" variant="primary" layout="form" className="lg:w-auto">
               Delete
-            </button>
+            </Button>
           </>
         ) : (
-          <button type="button" className={`${primaryBtnClass} lg:min-w-[120px]`} style={boldFont}>
+          <Button type="button" variant="primary" layout="form" className="lg:min-w-[120px] lg:w-auto">
             Delete
-          </button>
+          </Button>
         )}
       </div>
     </article>
