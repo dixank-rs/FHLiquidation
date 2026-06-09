@@ -89,7 +89,7 @@ export const formConfig: FormConfig = {
   },
   branding: {
     companyName: "FHLIQUIDATION",
-    copyright: "Copyright © 2026 FH Liquidation Auction Tool All Rights Reserved.",
+    copyright: "Copyright © 2026 FH Liquidation Auction Tool",
     poweredBy: "Powered by Navam Tech"
   }
 };

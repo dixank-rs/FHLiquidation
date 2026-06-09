@@ -286,10 +286,10 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
       <AppContainer className="relative z-10 flex h-[var(--fhi-header-height)] items-center justify-between gap-3">
         <Link href="/auction" className="inline-flex shrink-0 items-center" aria-label="FH Liquidation Auction Tool">
           <Image
-            src={assetPath("/theme/images/logo.png")}
+            src={assetPath("/logo_transperent.png")}
             alt="FH Liquidation Auction Tool"
-            width={216}
-            height={106}
+            width={240}
+            height={72}
             priority
             className="block h-[3rem] w-auto object-contain md:h-[3.25rem]"
           />

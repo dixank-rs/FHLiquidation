@@ -85,7 +85,7 @@ export function IconHelp({ className, ...props }: LucideProps) {
 
 export function IconPinVisibility({ visible, ...props }: LucideProps & { visible: boolean }) {
   const Icon = visible ? EyeOff : Eye;
-  return <Icon size={iconSizeMd} strokeWidth={2} className="text-[#181512]" {...hidden} {...props} />;
+  return <Icon size={16} strokeWidth={2} className="text-[#181512]" {...hidden} {...props} />;
 }
 
 export function IconFileText(props: LucideProps) {
