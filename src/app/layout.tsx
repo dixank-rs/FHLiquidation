@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import ScrollToTopOnNavigate from "@/components/layout/ScrollToTopOnNavigate";
 import StripExtensionHydrationScript from "@/components/StripExtensionHydrationScript";
-import { muli } from "@/config/muli-font";
 import { assetPath } from "@/config/site";
 import "./globals.css";
 import "../styles/index.scss";
@@ -31,7 +30,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={muli.variable}
       suppressHydrationWarning
     >
       <head>

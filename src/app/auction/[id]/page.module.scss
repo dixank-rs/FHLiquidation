@@ -71,8 +71,8 @@
 .contentBox :global(label) {
   display: inline-block;
   margin-bottom: 0.45rem;
-  font-family: tokens.$theme-font-family;
-  font-weight: tokens.$theme-font-weight-regular;
+  font-family: tokens.$theme-font-family-label;
+  font-weight: 400;
 }
 
 .inlineLabel {

@@ -1,9 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-muli), sans-serif;
-  --font-heading: var(--font-muli), sans-serif;
-  --font-auth: var(--font-muli), sans-serif;
+  --font-sans: "Muli", sans-serif;
+  --font-heading: "Muli-Bold", sans-serif;
+  --font-auth: "Muli", sans-serif;
+}
+
+@layer base {
+  form label,
+  label[for] {
+    font-family: "Muli-Bold", sans-serif;
+    font-weight: 400;
+  }
 }
 
 :root {
@@ -26,7 +34,7 @@ body {
 body {
   margin: 0;
   color: var(--fhi-text);
-  font-family: var(--font-muli), sans-serif;
+  font-family: "Muli", sans-serif;
   font-size: 0.9375rem;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
@@ -38,8 +46,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-muli), sans-serif;
-  font-weight: 700;
+  font-family: "Muli-Bold", sans-serif;
+  font-weight: 400;
   letter-spacing: -0.025em;
   text-wrap: balance;
 }
@@ -51,12 +59,9 @@ button {
   font: inherit;
 }
 
-label {
-  font-weight: 400;
-}
-
 strong {
-  font-weight: 700;
+  font-family: "Muli-Bold", sans-serif;
+  font-weight: 400;
 }
 
 /*
