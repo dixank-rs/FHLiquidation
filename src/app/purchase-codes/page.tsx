@@ -19,6 +19,7 @@ import {
   USER_OPTIONS,
   VENDOR_OPTIONS,
 } from "@/data/mockPurchaseCodes";
+import { boldFontStyle } from "@/config/fonts";
 import { FormEvent, useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 
 const inputBaseClass =
@@ -39,8 +40,6 @@ const checkboxClass =
 const filterToolbarCheckboxClass =
   "h-[18px] w-[18px] cursor-pointer rounded-[3px] border border-[#999] bg-white accent-[#d36838]";
 
-const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
-
 type StatusModalMode = "mark-inactive" | "mark-active" | null;
 
 type FieldProps = {
@@ -54,7 +53,7 @@ type FieldProps = {
 function FormField({ id, label, required, error, children }: FieldProps) {
   return (
     <div className="mb-4">
-      <label className="mb-2 block text-base text-[#181512]" style={boldFont} htmlFor={id}>
+      <label className="mb-2 block text-base text-[#181512]" style={boldFontStyle} htmlFor={id}>
         {label}
         {required ? <span className="text-[#dc3545]">*</span> : null}
       </label>
@@ -453,7 +452,7 @@ export default function PurchaseCodesPage() {
                         <span
                           id="pc-margin-suffix"
                           className="inline-flex items-center rounded-r-[5px] border border-l-0 border-[#ced4da] bg-[#e9ecef] px-3 text-base text-[#181512]"
-                          style={boldFont}
+                          style={boldFontStyle}
                         >
                           %
                         </span>
@@ -495,7 +494,7 @@ export default function PurchaseCodesPage() {
                     <div className="mb-4">
                       <span
                         className="mb-2 hidden text-base md:block"
-                        style={boldFont}
+                        style={boldFontStyle}
                         aria-hidden="true"
                       >
                         &nbsp;
@@ -510,7 +509,7 @@ export default function PurchaseCodesPage() {
                         />
                         <label
                           className="mb-0 cursor-pointer text-base text-[#181512]"
-                          style={boldFont}
+                          style={boldFontStyle}
                           htmlFor="pc-all-lps"
                         >
                           All SKU are LPs

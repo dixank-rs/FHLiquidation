@@ -6,6 +6,7 @@ import { IconDelete, IconDeleteDisabled, IconEdit, IconHelp } from "@/components
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
 import PageLayout from "@/components/layout/PageLayout";
+import { boldFontStyle } from "@/config/fonts";
 import { FormEvent, useMemo, useState } from "react";
 
 type ConditionRow = {
@@ -158,7 +159,7 @@ export default function ConditionsPage() {
                   <div className="mb-6">
                     <label
                       className="mb-2 block text-base text-[#181512]"
-                      style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
+                      style={boldFontStyle}
                       htmlFor="condition-name"
                     >
                       Name<span className="text-[#dc3545]">*</span>
@@ -186,7 +187,7 @@ export default function ConditionsPage() {
                   <div className="mb-6">
                     <label
                       className="mb-2 block text-base text-[#181512]"
-                      style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
+                      style={boldFontStyle}
                       htmlFor="condition-status"
                     >
                       Status

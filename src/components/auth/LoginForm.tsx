@@ -3,6 +3,7 @@
 import { IconPinVisibility } from "@/components/common/icons";
 import { Button } from "@/components/common/Button";
 import { formConfig } from "@/config/auth.config";
+import { boldFontStyle, semiBoldFontStyle } from "@/config/fonts";
 import { assetPath } from "@/config/site";
 import { Lock, Mail } from "lucide-react";
 import { FormEvent, useState } from "react";
@@ -13,9 +14,6 @@ type FormErrors = {
   email?: string;
   pin?: string;
 };
-
-const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" };
-const semiBoldFont = { fontFamily: "Muli-SemiBold, Arial, sans-serif" };
 
 export default function LoginForm() {
   const router = useRouter();
@@ -69,7 +67,6 @@ export default function LoginForm() {
 
       <div
         className="flex h-dvh items-center justify-center overflow-hidden bg-[#e0e0db] px-3 text-[#181512]"
-        style={{ fontFamily: "Muli, Arial, sans-serif" }}
       >
         <form id="frmLogin" onSubmit={handleSubmit} noValidate className="w-full max-w-[460px]">
           <div className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_rgba(24,21,18,0.08)]">
@@ -90,7 +87,7 @@ export default function LoginForm() {
                 priority
                 className="mx-auto h-auto max-w-[200px] sm:max-w-[230px]"
               />
-              <h1 className="mb-0.5 mt-2 text-xl leading-tight text-[#181512] sm:mt-2.5 sm:text-[1.35rem]" style={boldFont}>
+              <h1 className="mb-0.5 mt-2 text-xl leading-tight text-[#181512] sm:mt-2.5 sm:text-[1.35rem]" style={boldFontStyle}>
                 {formConfig.welcome.title}
               </h1>
               <p className="text-[13px] text-[#8a8680]">Enter your credentials to access the portal</p>
@@ -99,7 +96,7 @@ export default function LoginForm() {
             <div className="px-4 py-3 sm:px-6 sm:py-4">
 
               <div className="mb-3">
-                <label htmlFor="Email" className="mb-1.5 block text-[11px] tracking-wide text-[#181512]" style={semiBoldFont}>
+                <label htmlFor="Email" className="mb-1.5 block text-[11px] tracking-wide text-[#181512]" style={semiBoldFontStyle}>
                   EMAIL<span className="text-[#dc3545]"> *</span>
                 </label>
                 <div className="flex overflow-hidden rounded-lg border border-[#d36838] bg-white focus-within:border-[#bb5c2f]">
@@ -127,7 +124,7 @@ export default function LoginForm() {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="PIN" className="mb-1.5 block text-[11px] tracking-wide text-[#181512]" style={semiBoldFont}>
+                <label htmlFor="PIN" className="mb-1.5 block text-[11px] tracking-wide text-[#181512]" style={semiBoldFontStyle}>
                   PIN<span className="text-[#dc3545]"> *</span>
                 </label>
                 <div className="relative flex overflow-hidden rounded-lg border border-[#d36838] bg-white focus-within:border-[#bb5c2f]">
@@ -180,7 +177,7 @@ export default function LoginForm() {
                 Login &rarr;
               </Button>
 
-              <div className="mt-3 border-t border-[#ececea] pt-2.5 text-center text-xs leading-relaxed text-[#8a8680] sm:pt-3" style={semiBoldFont}>
+              <div className="mt-3 border-t border-[#ececea] pt-2.5 text-center text-xs leading-relaxed text-[#8a8680] sm:pt-3" style={semiBoldFontStyle}>
                 {formConfig.branding.copyright}
                 <br />
                 Powered by{" "}

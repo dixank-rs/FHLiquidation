@@ -4,6 +4,7 @@ import AppContainer, { contentPanelClass } from "@/components/layout/AppContaine
 import PageHeader from "@/components/layout/PageHeader";
 import PageLayout from "@/components/layout/PageLayout";
 import { Button, FormActions } from "@/components/common/Button";
+import { boldFontStyle } from "@/config/fonts";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -56,7 +57,7 @@ export default function NewAuctionPage() {
                   <div className="mb-6">
                     <label
                       className="mb-2 block text-base text-[#181512]"
-                      style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
+                      style={boldFontStyle}
                       htmlFor="auction-name"
                     >
                       Name<span className="text-[#dc3545]">*</span>
@@ -89,7 +90,7 @@ export default function NewAuctionPage() {
                   <div className="mb-6">
                     <label
                       className="mb-2 block text-base text-[#181512]"
-                      style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
+                      style={boldFontStyle}
                       htmlFor="starting-lot-no"
                     >
                       Starting Lot No<span className="text-[#dc3545]">*</span>

@@ -6,6 +6,7 @@ import { IconClose, IconDelete, IconEdit, IconPinVisibility } from "@/components
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
 import PageLayout from "@/components/layout/PageLayout";
+import { boldFontStyle } from "@/config/fonts";
 import { FormEvent, useCallback, useId, useState } from "react";
 
 type UserRow = {
@@ -147,7 +148,7 @@ export default function UsersPage() {
                     <div className="w-full md:w-1/2">
                       <label
                         className="mb-2 block text-base text-[#181512]"
-                        style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
+                        style={boldFontStyle}
                         htmlFor="user-first-name"
                       >
                         First Name<span className="text-[#dc3545]">*</span>
@@ -174,7 +175,7 @@ export default function UsersPage() {
                     <div className="w-full md:w-1/2">
                       <label
                         className="mb-2 block text-base text-[#181512]"
-                        style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
+                        style={boldFontStyle}
                         htmlFor="user-last-name"
                       >
                         Last Name
@@ -195,7 +196,7 @@ export default function UsersPage() {
                     <div className="w-full md:w-1/2">
                       <label
                         className="mb-2 block text-base text-[#181512]"
-                        style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
+                        style={boldFontStyle}
                         htmlFor="user-email"
                       >
                         Email<span className="text-[#dc3545]">*</span>
@@ -230,7 +231,7 @@ export default function UsersPage() {
                         </button>
                         <label
                           className="mb-2 block text-base text-[#181512]"
-                          style={{ fontFamily: "Muli-Bold, Arial, sans-serif" }}
+                          style={boldFontStyle}
                           htmlFor="user-pin"
                         >
                           Pin<span className="text-[#dc3545]">*</span>

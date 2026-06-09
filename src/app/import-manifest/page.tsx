@@ -25,6 +25,7 @@ import {
   SAMPLE_IMPORT_MANIFEST_FORM,
   VENDOR_OPTIONS,
 } from "@/data/mockImportManifest";
+import { boldFontStyle } from "@/config/fonts";
 import { useId, useMemo, useRef, useState, type ReactNode } from "react";
 
 const inputBaseClass =
@@ -35,8 +36,6 @@ const selectBaseClass =
 
 const textareaClass =
   "w-full resize-y rounded-[5px] border border-[#ced4da] bg-white px-3 py-[0.7rem] text-[#181512] outline-none focus:border-[#d36838] focus:ring-2 focus:ring-[#d36838]/25";
-
-const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
 
 const rightAlign = "text-right";
 
@@ -51,7 +50,7 @@ type FieldProps = {
 function FormField({ id, label, required, error, children }: FieldProps) {
   return (
     <div className="mb-4">
-      <label className="mb-2 block text-base text-[#181512]" style={boldFont} htmlFor={id}>
+      <label className="mb-2 block text-base text-[#181512]" style={boldFontStyle} htmlFor={id}>
         {label}
         {required ? <span className="text-[#dc3545]">*</span> : null}
       </label>
@@ -369,7 +368,7 @@ export default function ImportManifestPage() {
                   aria-live="polite"
                   aria-label="Loading manifest items"
                 >
-                  <span className="text-[14px] text-[#181512]" style={boldFont}>
+                  <span className="text-[14px] text-[#181512]" style={boldFontStyle}>
                     Loading manifest items…
                   </span>
                 </div>
@@ -385,10 +384,10 @@ export default function ImportManifestPage() {
 
             {items.length > 0 ? (
               <div className="mt-6 flex w-full min-w-0 flex-col items-start gap-1 text-left text-[#181512] sm:items-end sm:text-right">
-                <p className="m-0 max-w-full break-words text-sm sm:text-base" style={boldFont}>
+                <p className="m-0 max-w-full break-words text-sm sm:text-base" style={boldFontStyle}>
                   Total Qty: {formatQty(totals.totalQty)}
                 </p>
-                <p className="m-0 max-w-full break-words text-sm sm:text-base" style={boldFont}>
+                <p className="m-0 max-w-full break-words text-sm sm:text-base" style={boldFontStyle}>
                   Total Extended Last Known Price: {formatCurrency(totals.totalExtLastKnownPrice)}
                 </p>
               </div>
@@ -413,7 +412,7 @@ export default function ImportManifestPage() {
               <h2
                 id={instructionsModalTitleId}
                 className="m-0 pr-2 text-base font-semibold leading-snug text-[#d36838] sm:text-lg"
-                style={boldFont}
+                style={boldFontStyle}
               >
                 Import Manifest Instructions
               </h2>
@@ -428,7 +427,7 @@ export default function ImportManifestPage() {
             </div>
 
             <div className="overflow-y-auto px-3 py-4 text-[#181512] sm:px-4">
-              <h3 className="mt-0 mb-3 text-sm leading-snug text-[#181512] sm:text-base" style={boldFont}>
+              <h3 className="mt-0 mb-3 text-sm leading-snug text-[#181512] sm:text-base" style={boldFontStyle}>
                 The Costco Manifest must be in following format to import
               </h3>
               <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">
@@ -438,13 +437,13 @@ export default function ImportManifestPage() {
                       <tr>
                         <th
                           className="w-[72px] border border-[#ddd] px-2 py-1.5 text-left font-semibold"
-                          style={boldFont}
+                          style={boldFontStyle}
                         >
                           Column
                         </th>
                         <th
                           className="border border-[#ddd] px-2 py-1.5 text-left font-semibold"
-                          style={boldFont}
+                          style={boldFontStyle}
                         >
                           Contents
                         </th>
@@ -455,7 +454,7 @@ export default function ImportManifestPage() {
                         <tr key={row.column} className="hover:bg-[#f9f9f9]">
                           <td
                             className="border border-[#ddd] px-2 py-1.5 font-semibold"
-                            style={boldFont}
+                            style={boldFontStyle}
                           >
                             {row.column}
                           </td>

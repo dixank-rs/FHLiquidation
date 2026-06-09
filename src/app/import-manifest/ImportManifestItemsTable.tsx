@@ -5,7 +5,7 @@ import { IconFileSpreadsheet, IconListRows } from "@/components/common/icons";
 import { formatQty, ManifestFileMeta, ManifestItemRow } from "@/data/mockImportManifest";
 import { useMemo, useState, useSyncExternalStore } from "react";
 
-const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
+import { boldFontStyle } from "@/config/fonts";
 
 /** Below 480px: only Item No sticky; 480px+ : Item No + GTIN sticky */
 const VERY_SMALL_MQ = "(max-width: 479px)";
@@ -51,13 +51,13 @@ function ManifestFileBadge({ fileName, rowCount }: { fileName: string; rowCount:
       aria-label={`Loaded manifest ${fileName}, ${formatQty(rowCount)} ${rowLabel}`}
     >
       <IconFileSpreadsheet className="shrink-0" />
-      <span className="min-w-0 flex-1 truncate text-[13px] text-[#181512]" style={boldFont} title={fileName}>
+      <span className="min-w-0 flex-1 truncate text-[13px] text-[#181512]" style={boldFontStyle} title={fileName}>
         {fileName}
       </span>
       <span className="h-4 w-px shrink-0 bg-[#d4b8a8]" aria-hidden />
       <span
         className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-[13px] text-[#d36838]"
-        style={boldFont}
+        style={boldFontStyle}
       >
         <IconListRows className="shrink-0 text-[#d36838]" />
         {formatQty(rowCount)} {rowLabel}

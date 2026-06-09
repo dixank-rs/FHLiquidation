@@ -2,6 +2,7 @@
 
 import { IconChevronDown, IconClose, IconMenu } from "@/components/common/icons";
 import AppContainer from "@/components/layout/AppContainer";
+import { boldFontStyle } from "@/config/fonts";
 import { assetPath } from "@/config/site";
 import Image from "next/image";
 import Link from "next/link";
@@ -171,7 +172,6 @@ const linkClass = (active: boolean) =>
     active ? "text-[#d36838]" : "text-[#181512] hover:text-[#d36838]"
   }`;
 
-const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
 
 function isItemActive(item: NavLinkItem, activeKey: string | undefined, pathname: string) {
   if (activeKey) return item.key === activeKey;
@@ -317,7 +317,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                     <Link
                       href={entry.href}
                       className={linkClass(active)}
-                      style={boldFont}
+                      style={boldFontStyle}
                       onClick={closeMenus}
                     >
                       {entry.label}
@@ -348,7 +348,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                     className={`hidden w-full items-center justify-between gap-1.5 border-0 bg-transparent px-3 py-2 text-left text-[15px] transition-colors lg:inline-flex lg:w-auto lg:justify-start lg:px-0 lg:py-0 lg:text-[13px] xl:text-[15px] ${
                       groupActive ? "text-[#d36838]" : "text-[#181512] hover:text-[#d36838]"
                     }`}
-                    style={boldFont}
+                    style={boldFontStyle}
                     aria-expanded={dropdownOpen}
                     aria-haspopup="true"
                     aria-controls={menuPanelId}
@@ -366,7 +366,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                     className={`flex min-h-[44px] w-full items-center justify-between gap-2 border-0 bg-transparent px-3 py-2 text-left text-base transition-colors lg:hidden ${
                       groupActive ? "text-[#d36838]" : "text-[#181512]"
                     }`}
-                    style={boldFont}
+                    style={boldFontStyle}
                     aria-expanded={mobileDropdownOpen}
                     onClick={() =>
                       setMobileOpenDropdownKey((key) => (key === entry.key ? null : entry.key))
@@ -399,7 +399,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                             }`}
                             onClick={closeMenus}
                           >
-                            <span className="block text-[15px]" style={boldFont}>
+                            <span className="block text-[15px]" style={boldFontStyle}>
                               {item.label}
                             </span>
                             {item.description ? (
@@ -430,7 +430,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                             }`}
                             onClick={closeMenus}
                           >
-                            <span className="block text-[15px]" style={boldFont}>
+                            <span className="block text-[15px]" style={boldFontStyle}>
                               {item.label}
                             </span>
                             {item.description ? (

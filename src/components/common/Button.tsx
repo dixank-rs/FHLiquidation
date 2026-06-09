@@ -1,3 +1,4 @@
+import { boldFontStyle } from "@/config/fonts";
 import Link from "next/link";
 import {
   forwardRef,
@@ -9,8 +10,6 @@ import {
 export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 export type ButtonSize = "sm" | "md";
 export type ButtonLayout = "inline" | "form" | "actionBar" | "block";
-
-const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
 
 const baseClass =
   "inline-flex cursor-pointer items-center justify-center whitespace-nowrap border text-center leading-normal no-underline transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
@@ -68,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       type={type}
       suppressHydrationWarning
       className={cn(baseClass, variantClass[variant], sizeClass[size], layoutClass[layout], className)}
-      style={{ ...boldFont, ...style }}
+      style={{ ...boldFontStyle, ...style }}
       {...props}
     />
   );
@@ -97,7 +96,7 @@ export function ButtonLink({
       href={href}
       suppressHydrationWarning
       className={cn(baseClass, variantClass[variant], sizeClass[size], layoutClass[layout], className)}
-      style={{ ...boldFont, ...style }}
+      style={{ ...boldFontStyle, ...style }}
       {...props}
     >
       {children}

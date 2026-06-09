@@ -5,8 +5,7 @@ export default function Footer() {
     <footer className="mt-auto bg-[#181512]">
       <AppContainer>
         <div
-          className="py-4 text-center text-sm leading-[1.45] text-white"
-          style={{ fontFamily: "Muli-SemiBold, Arial, sans-serif" }}
+          className="py-4 text-center text-sm font-semibold leading-[1.45] text-white"
         >
           Copyright &copy; 2026 FH Liquidation Auction Tool All Rights Reserved.
           <br />

@@ -10,6 +10,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import SectionTitle from "@/components/layout/SectionTitle";
 import { IconChevronLeft, IconChevronRight, IconClose, IconZoomIn } from "@/components/common/icons";
 import PageLayout from "@/components/layout/PageLayout";
+import { boldFontStyle } from "@/config/fonts";
 import { assetPath } from "@/config/site";
 
 const IMAGE_SRCS = [
@@ -19,8 +20,6 @@ const IMAGE_SRCS = [
   assetPath("/theme/images/v-img3.jpg"),
   assetPath("/theme/images/v-img4.jpg"),
 ] as const;
-
-const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
 
 const galleryGridClass =
   "gallery grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6";
@@ -209,7 +208,7 @@ export default function ViewAuctionImagesPage() {
               </button>
               <p
                 className="absolute left-1/2 top-3 z-10 -translate-x-1/2 rounded-full bg-black/40 px-3 py-1 text-sm text-white backdrop-blur-sm"
-                style={boldFont}
+                style={boldFontStyle}
                 aria-live="polite"
               >
                 {currentIndex + 1} / {IMAGE_SRCS.length}

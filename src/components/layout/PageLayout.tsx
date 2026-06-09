@@ -11,7 +11,6 @@ export default function PageLayout({ activeKey, children }: PageLayoutProps) {
   return (
     <div
       className="flex min-h-screen flex-col bg-[var(--fhi-body-bg)]"
-      style={{ fontFamily: "Muli, Arial, sans-serif" }}
     >
       <Header activeKey={activeKey} />
       <main

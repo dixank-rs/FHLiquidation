@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
 
-const boldFont = { fontFamily: "Muli-Bold, Arial, sans-serif" } as const;
-
 export const sectionTitleClassName =
   "text-center text-base font-bold leading-tight text-[#181512] sm:text-lg lg:text-2xl lg:leading-snug";
 
@@ -17,7 +15,7 @@ type SectionTitleProps = {
 export default function SectionTitle({ id, children, className = "" }: SectionTitleProps) {
   return (
     <div className={[sectionTitleWrapClassName, className].filter(Boolean).join(" ")}>
-      <h2 id={id} className={["m-0", sectionTitleClassName].join(" ")} style={boldFont}>
+      <h2 id={id} className={["m-0", sectionTitleClassName].join(" ")}>
         {children}
       </h2>
     </div>
