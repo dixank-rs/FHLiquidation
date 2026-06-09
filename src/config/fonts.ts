@@ -48,10 +48,10 @@ export const fontBold: CSSProperties = {
   letterSpacing: "-0.02em",
 };
 
-/** Form labels */
+/** Form labels — regular Muli, not bold */
 export const labelFont: CSSProperties = {
   fontFamily: fontFamilyBody,
-  fontWeight: 600,
+  fontWeight: 400,
   fontSize: "0.875rem",
   lineHeight: 1.4,
 };
@@ -81,7 +81,7 @@ export const authTitleFont: CSSProperties = {
 
 export const authLabelFont: CSSProperties = {
   fontFamily: fontFamilyAuth,
-  fontWeight: 600,
+  fontWeight: 400,
   fontSize: "0.875rem",
   lineHeight: 1.4,
 };

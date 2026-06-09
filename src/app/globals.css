@@ -51,6 +51,10 @@ button {
   font: inherit;
 }
 
+label {
+  font-weight: 400;
+}
+
 strong {
   font-weight: 700;
 }
