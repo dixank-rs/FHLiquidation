@@ -3,7 +3,7 @@
 import { IconPinVisibility } from "@/components/common/icons";
 import { Button } from "@/components/common/Button";
 import { formConfig } from "@/config/auth.config";
-import { boldFontStyle, semiBoldFontStyle } from "@/config/fonts";
+import { authFontRegular, authLabelFont, authTitleFont } from "@/config/fonts";
 import { assetPath } from "@/config/site";
 import { Lock, Mail } from "lucide-react";
 import { FormEvent, useState } from "react";
@@ -67,6 +67,7 @@ export default function LoginForm() {
 
       <div
         className="flex h-dvh items-center justify-center overflow-hidden bg-[#e0e0db] px-3 text-[#181512]"
+        style={authFontRegular}
       >
         <form id="frmLogin" onSubmit={handleSubmit} noValidate className="w-full max-w-[460px]">
           <div className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_rgba(24,21,18,0.08)]">
@@ -87,17 +88,22 @@ export default function LoginForm() {
                 priority
                 className="mx-auto h-auto max-w-[200px] sm:max-w-[230px]"
               />
-              <h1 className="mb-0.5 mt-2 text-xl leading-tight text-[#181512] sm:mt-2.5 sm:text-[1.35rem]" style={boldFontStyle}>
+              <h1
+                className="mb-1 mt-3 text-[1.375rem] leading-tight text-[#181512] sm:mt-3.5 sm:text-2xl"
+                style={authTitleFont}
+              >
                 {formConfig.welcome.title}
               </h1>
-              <p className="text-[13px] text-[#8a8680]">Enter your credentials to access the portal</p>
+              <p className="text-sm leading-relaxed text-[#6b6762]">
+                Enter your credentials to access the portal
+              </p>
             </div>
 
             <div className="px-4 py-3 sm:px-6 sm:py-4">
 
               <div className="mb-3">
-                <label htmlFor="Email" className="mb-1.5 block text-[11px] tracking-wide text-[#181512]" style={semiBoldFontStyle}>
-                  EMAIL<span className="text-[#dc3545]"> *</span>
+                <label htmlFor="Email" className="mb-2 block text-[#181512]" style={authLabelFont}>
+                  Email<span className="text-[#dc3545]"> *</span>
                 </label>
                 <div className="flex overflow-hidden rounded-lg border border-[#d36838] bg-white focus-within:border-[#bb5c2f]">
                   <span className="flex items-center px-3 text-[#a8a49e]">
@@ -107,7 +113,7 @@ export default function LoginForm() {
                     type="email"
                     id="Email"
                     name="Email"
-                    className="min-w-0 flex-1 border-0 bg-transparent py-2.5 pr-3 text-sm outline-none sm:py-3"
+                    className="min-w-0 flex-1 border-0 bg-transparent py-2.5 pr-3 text-[0.9375rem] outline-none sm:py-3"
                     autoComplete="email"
                     autoFocus
                     required
@@ -124,8 +130,8 @@ export default function LoginForm() {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="PIN" className="mb-1.5 block text-[11px] tracking-wide text-[#181512]" style={semiBoldFontStyle}>
-                  PIN<span className="text-[#dc3545]"> *</span>
+                <label htmlFor="PIN" className="mb-2 block text-[#181512]" style={authLabelFont}>
+                  Pin<span className="text-[#dc3545]"> *</span>
                 </label>
                 <div className="relative flex overflow-hidden rounded-lg border border-[#d36838] bg-white focus-within:border-[#bb5c2f]">
                   <span className="flex items-center px-3 text-[#a8a49e]">
@@ -135,7 +141,7 @@ export default function LoginForm() {
                     type={showPin ? "text" : "password"}
                     id="PIN"
                     name="PIN"
-                    className="min-w-0 flex-1 border-0 bg-transparent py-2.5 pr-11 text-sm outline-none sm:py-3"
+                    className="min-w-0 flex-1 border-0 bg-transparent py-2.5 pr-11 text-[0.9375rem] outline-none sm:py-3"
                     maxLength={4}
                     inputMode="numeric"
                     pattern="\d{4}"
@@ -161,7 +167,7 @@ export default function LoginForm() {
                 </div>
               </div>
 
-              <div className="mb-4 text-sm">
+              <div className="mb-4 text-[0.9375rem]">
                 <label className="inline-flex cursor-pointer items-center gap-2 text-[#181512]">
                   <input
                     type="checkbox"
@@ -177,13 +183,19 @@ export default function LoginForm() {
                 Login &rarr;
               </Button>
 
-              <div className="mt-3 border-t border-[#ececea] pt-2.5 text-center text-xs leading-relaxed text-[#8a8680] sm:pt-3" style={semiBoldFontStyle}>
-                {formConfig.branding.copyright}
-                <br />
-                Powered by{" "}
-                <a className="text-[#d36838] no-underline" href="https://www.devdigital.com/" target="_blank" rel="noopener">
-                  Navam Tech
-                </a>
+              <div className="mt-3 border-t border-[#e0ded9] pt-3 text-center text-sm leading-relaxed text-[#6b6762] sm:pt-3.5">
+                <p className="m-0">{formConfig.branding.copyright}</p>
+                <p className="m-0 mt-1">
+                  Powered by{" "}
+                  <a
+                    className="font-medium text-[#d36838] no-underline hover:underline"
+                    href="https://www.devdigital.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Navam Tech
+                  </a>
+                </p>
               </div>
             </div>
           </div>

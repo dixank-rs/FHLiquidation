@@ -9,7 +9,7 @@ import { IconEdit, IconFileText } from "@/components/common/icons";
 import DataTable, { ColumnConfig } from "@/components/common/DataTable";
 import { Button, ButtonLink, FormActions } from "@/components/common/Button";
 import PageLayout from "@/components/layout/PageLayout";
-import { boldFontStyle, lightFontStyle, semiBoldFontStyle } from "@/config/fonts";
+import { boldFont, fontBold, fontLight, labelFont } from "@/config/fonts";
 
 type AuctionItem = {
   aStock: string;
@@ -145,7 +145,7 @@ export default function AuctionDetailPage() {
       sortable: false,
       render: (row) => (
         <div className="flex items-center gap-2">
-          <span className="text-[#28a745]" style={boldFontStyle}>
+          <span className="text-[#28a745]" style={fontBold}>
             {row.aStock}
           </span>
           <button type="button" suppressHydrationWarning className="text-gray-600 hover:text-gray-800" aria-label="View document">
@@ -215,33 +215,33 @@ export default function AuctionDetailPage() {
 
         <div className={contentPanelClass}>
           <div className="mb-4 grid grid-cols-2 gap-4 rounded-[10px] bg-[#181512] px-4 py-3 text-white sm:grid-cols-3 md:flex md:flex-row md:flex-wrap md:justify-between xl:flex-nowrap">
-            <div style={lightFontStyle}>
+            <div style={fontLight}>
               Auction Name
-              <strong className="block text-xl" style={boldFontStyle}>
+              <strong className="block text-xl" style={fontBold}>
                 {mockAuctionData.auctionName} <span className="text-[#d36838]">AStock</span>
               </strong>
             </div>
-            <div style={lightFontStyle}>
+            <div style={fontLight}>
               Status
-              <strong className="block text-xl" style={boldFontStyle}>
+              <strong className="block text-xl" style={fontBold}>
                 {mockAuctionData.status}
               </strong>
             </div>
-            <div style={lightFontStyle}>
+            <div style={fontLight}>
               Total Items
-              <strong className="block text-xl" style={boldFontStyle}>
+              <strong className="block text-xl" style={fontBold}>
                 {mockAuctionData.totalItems}
               </strong>
             </div>
-            <div style={lightFontStyle}>
+            <div style={fontLight}>
               Starting Lot
-              <strong className="block text-xl" style={boldFontStyle}>
+              <strong className="block text-xl" style={fontBold}>
                 {mockAuctionData.startingLot}
               </strong>
             </div>
-            <div style={lightFontStyle}>
+            <div style={fontLight}>
               Date Created
-              <strong className="block text-xl" style={boldFontStyle}>
+              <strong className="block text-xl" style={fontBold}>
                 {mockAuctionData.dateCreated}
               </strong>
             </div>
@@ -258,7 +258,7 @@ export default function AuctionDetailPage() {
             )}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-6">
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="lotNo" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="lotNo" style={labelFont}>
                   Lot #
                 </label>
                 <input
@@ -270,7 +270,7 @@ export default function AuctionDetailPage() {
                 />
               </div>
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="startingLotNo" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="startingLotNo" style={labelFont}>
                   Starting Lot No
                 </label>
                 <input
@@ -283,7 +283,7 @@ export default function AuctionDetailPage() {
                 />
               </div>
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="upc" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="upc" style={labelFont}>
                   UPC
                 </label>
                 <input
@@ -296,7 +296,7 @@ export default function AuctionDetailPage() {
                 />
               </div>
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="category" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="category" style={labelFont}>
                   Category
                 </label>
                 <input
@@ -319,7 +319,7 @@ export default function AuctionDetailPage() {
                 )}
               </div>
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="condition" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="condition" style={labelFont}>
                   Condition
                 </label>
                 <select
@@ -346,7 +346,7 @@ export default function AuctionDetailPage() {
                 )}
               </div>
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="unitCost" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="unitCost" style={labelFont}>
                   Unit Cost
                 </label>
                 <input
@@ -374,7 +374,7 @@ export default function AuctionDetailPage() {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="mb-3">
                 <div className="mb-2 flex items-center justify-between">
-                  <label htmlFor="title" className="inline-block" style={semiBoldFontStyle}>
+                  <label htmlFor="title" className="inline-block" style={labelFont}>
                     Title
                   </label>
                   <span className="text-[#d36838]">{title.length}/100</span>
@@ -399,7 +399,7 @@ export default function AuctionDetailPage() {
                 )}
               </div>
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="link" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="link" style={labelFont}>
                   Link
                 </label>
                 <input
@@ -427,7 +427,7 @@ export default function AuctionDetailPage() {
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="genericDescription" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="genericDescription" style={labelFont}>
                   Generic Description
                 </label>
                 <textarea
@@ -449,7 +449,7 @@ export default function AuctionDetailPage() {
                 )}
               </div>
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="itemSpecific" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="itemSpecific" style={labelFont}>
                   Item Specific Information (Damages, etc...)
                 </label>
                 <textarea
@@ -463,7 +463,7 @@ export default function AuctionDetailPage() {
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="standardPicturesInput" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="standardPicturesInput" style={labelFont}>
                   Standard Pictures
                 </label>
                 <div
@@ -492,7 +492,7 @@ export default function AuctionDetailPage() {
                 </div>
               </div>
               <div className="mb-3">
-                <label className="mb-2 inline-block" htmlFor="itemSpecificPicturesInput" style={semiBoldFontStyle}>
+                <label className="mb-2 inline-block" htmlFor="itemSpecificPicturesInput" style={labelFont}>
                   Item Specific Pictures
                 </label>
                 <div
@@ -553,7 +553,7 @@ export default function AuctionDetailPage() {
                   <label
                     htmlFor="saveItem"
                     className="inline-flex cursor-pointer items-center gap-2 text-[15px] text-[#181512]"
-                    style={semiBoldFontStyle}
+                    style={labelFont}
                   >
                     <input
                       id="saveItem"

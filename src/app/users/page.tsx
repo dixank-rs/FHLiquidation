@@ -6,7 +6,7 @@ import { IconClose, IconDelete, IconEdit, IconPinVisibility } from "@/components
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
 import PageLayout from "@/components/layout/PageLayout";
-import { boldFontStyle } from "@/config/fonts";
+import { labelFont } from "@/config/fonts";
 import { FormEvent, useCallback, useId, useState } from "react";
 
 type UserRow = {
@@ -147,8 +147,8 @@ export default function UsersPage() {
                   <div className="mb-6 flex flex-col gap-6 md:flex-row">
                     <div className="w-full md:w-1/2">
                       <label
-                        className="mb-2 block text-base text-[#181512]"
-                        style={boldFontStyle}
+                        className="mb-2 block text-[#181512]"
+                        style={labelFont}
                         htmlFor="user-first-name"
                       >
                         First Name<span className="text-[#dc3545]">*</span>
@@ -174,8 +174,8 @@ export default function UsersPage() {
                     </div>
                     <div className="w-full md:w-1/2">
                       <label
-                        className="mb-2 block text-base text-[#181512]"
-                        style={boldFontStyle}
+                        className="mb-2 block text-[#181512]"
+                        style={labelFont}
                         htmlFor="user-last-name"
                       >
                         Last Name
@@ -195,8 +195,8 @@ export default function UsersPage() {
                   <div className="mb-6 flex flex-col gap-6 md:flex-row">
                     <div className="w-full md:w-1/2">
                       <label
-                        className="mb-2 block text-base text-[#181512]"
-                        style={boldFontStyle}
+                        className="mb-2 block text-[#181512]"
+                        style={labelFont}
                         htmlFor="user-email"
                       >
                         Email<span className="text-[#dc3545]">*</span>
@@ -230,8 +230,8 @@ export default function UsersPage() {
                           Generate Pin
                         </button>
                         <label
-                          className="mb-2 block text-base text-[#181512]"
-                          style={boldFontStyle}
+                          className="mb-2 block text-[#181512]"
+                          style={labelFont}
                           htmlFor="user-pin"
                         >
                           Pin<span className="text-[#dc3545]">*</span>

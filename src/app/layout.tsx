@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ScrollToTopOnNavigate from "@/components/layout/ScrollToTopOnNavigate";
 import StripExtensionHydrationScript from "@/components/StripExtensionHydrationScript";
+import { muli } from "@/config/muli-font";
 import { assetPath } from "@/config/site";
 import "./globals.css";
 import "../styles/index.scss";
@@ -28,12 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={muli.variable}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="icon" href={assetPath("/favicon.ico")} sizes="any" />
         <link rel="apple-touch-icon" href={assetPath("/touch-icon.png")} />
       </head>
-      <body suppressHydrationWarning>
+      <body className="antialiased" suppressHydrationWarning>
         <StripExtensionHydrationScript />
         <ScrollToTopOnNavigate />
         {children}

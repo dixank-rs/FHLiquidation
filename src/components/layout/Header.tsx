@@ -2,7 +2,7 @@
 
 import { IconChevronDown, IconClose, IconMenu } from "@/components/common/icons";
 import AppContainer from "@/components/layout/AppContainer";
-import { boldFontStyle } from "@/config/fonts";
+import { fontFamilyHeading } from "@/config/fonts";
 import { assetPath } from "@/config/site";
 import Image from "next/image";
 import Link from "next/link";
@@ -167,11 +167,11 @@ const defaultNavEntries: NavEntry[] = [
   },
 ];
 
-const linkClass = (active: boolean) =>
-  `inline-flex min-h-[44px] items-center px-3 py-2 text-[15px] no-underline transition-colors lg:ml-2 lg:min-h-0 lg:px-0 lg:py-0 lg:text-[13px] xl:ml-4 xl:text-[15px] ${
-    active ? "text-[#d36838]" : "text-[#181512] hover:text-[#d36838]"
-  }`;
+const navTextClass = (active: boolean) =>
+  active ? "font-medium text-[#d36838]" : "font-normal text-[#181512] hover:text-[#d36838]";
 
+const linkClass = (active: boolean) =>
+  `inline-flex min-h-[44px] items-center px-3 py-2 text-[0.875rem] tracking-normal no-underline transition-colors lg:ml-2 lg:min-h-0 lg:px-0 lg:py-0 xl:ml-4 ${navTextClass(active)}`;
 
 function isItemActive(item: NavLinkItem, activeKey: string | undefined, pathname: string) {
   if (activeKey) return item.key === activeKey;
@@ -272,6 +272,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
     <header
       ref={headerRef}
       className="fixed left-0 right-0 top-0 z-[1000] w-full border-b border-[#d4d4d0] bg-[var(--fhi-header-bg)]"
+      style={{ fontFamily: fontFamilyHeading }}
     >
       {menuOpen ? (
         <button
@@ -317,7 +318,6 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                     <Link
                       href={entry.href}
                       className={linkClass(active)}
-                      style={boldFontStyle}
                       onClick={closeMenus}
                     >
                       {entry.label}
@@ -345,10 +345,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                   <button
                     type="button"
                     id={triggerId}
-                    className={`hidden w-full items-center justify-between gap-1.5 border-0 bg-transparent px-3 py-2 text-left text-[15px] transition-colors lg:inline-flex lg:w-auto lg:justify-start lg:px-0 lg:py-0 lg:text-[13px] xl:text-[15px] ${
-                      groupActive ? "text-[#d36838]" : "text-[#181512] hover:text-[#d36838]"
-                    }`}
-                    style={boldFontStyle}
+                    className={`hidden w-full items-center justify-between gap-1.5 border-0 bg-transparent px-3 py-2 text-left text-[0.875rem] transition-colors lg:inline-flex lg:w-auto lg:justify-start lg:px-0 lg:py-0 ${navTextClass(groupActive)}`}
                     aria-expanded={dropdownOpen}
                     aria-haspopup="true"
                     aria-controls={menuPanelId}
@@ -363,10 +360,7 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                   {/* Mobile accordion trigger */}
                   <button
                     type="button"
-                    className={`flex min-h-[44px] w-full items-center justify-between gap-2 border-0 bg-transparent px-3 py-2 text-left text-base transition-colors lg:hidden ${
-                      groupActive ? "text-[#d36838]" : "text-[#181512]"
-                    }`}
-                    style={boldFontStyle}
+                    className={`flex min-h-[44px] w-full items-center justify-between gap-2 border-0 bg-transparent px-3 py-2 text-left text-[0.875rem] transition-colors lg:hidden ${navTextClass(groupActive)}`}
                     aria-expanded={mobileDropdownOpen}
                     onClick={() =>
                       setMobileOpenDropdownKey((key) => (key === entry.key ? null : entry.key))
@@ -399,11 +393,11 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                             }`}
                             onClick={closeMenus}
                           >
-                            <span className="block text-[15px]" style={boldFontStyle}>
+                            <span className={`block text-[0.875rem] ${active ? "font-medium" : "font-normal"}`}>
                               {item.label}
                             </span>
                             {item.description ? (
-                              <span className="mt-0.5 block text-[12px] leading-snug text-[#666]">
+                              <span className="mt-0.5 block text-xs font-normal leading-snug text-[#666]">
                                 {item.description}
                               </span>
                             ) : null}
@@ -430,11 +424,11 @@ export default function Header({ navEntries = defaultNavEntries, activeKey }: He
                             }`}
                             onClick={closeMenus}
                           >
-                            <span className="block text-[15px]" style={boldFontStyle}>
+                            <span className={`block text-[0.875rem] ${active ? "font-medium" : "font-normal"}`}>
                               {item.label}
                             </span>
                             {item.description ? (
-                              <span className="mt-0.5 block text-[12px] text-[#666]">{item.description}</span>
+                              <span className="mt-0.5 block text-xs font-normal text-[#666]">{item.description}</span>
                             ) : null}
                           </Link>
                         </li>

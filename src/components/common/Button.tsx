@@ -1,4 +1,4 @@
-import { boldFontStyle } from "@/config/fonts";
+import { buttonFont } from "@/config/fonts";
 import Link from "next/link";
 import {
   forwardRef,
@@ -67,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       type={type}
       suppressHydrationWarning
       className={cn(baseClass, variantClass[variant], sizeClass[size], layoutClass[layout], className)}
-      style={{ ...boldFontStyle, ...style }}
+      style={{ ...buttonFont, ...style }}
       {...props}
     />
   );
@@ -96,7 +96,7 @@ export function ButtonLink({
       href={href}
       suppressHydrationWarning
       className={cn(baseClass, variantClass[variant], sizeClass[size], layoutClass[layout], className)}
-      style={{ ...boldFontStyle, ...style }}
+      style={{ ...buttonFont, ...style }}
       {...props}
     >
       {children}

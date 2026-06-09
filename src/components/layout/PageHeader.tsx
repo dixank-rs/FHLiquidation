@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { titleFont } from "@/config/fonts";
+
 type PageHeaderProps = {
   title: string;
   actions?: ReactNode;
@@ -17,7 +19,8 @@ export default function PageHeader({ title, actions, className = "" }: PageHeade
         .join(" ")}
     >
       <h1
-        className="m-0 min-w-0 flex-1 break-words text-left text-xl font-bold leading-tight text-[#d36838] sm:text-2xl sm:leading-snug lg:text-[1.75rem] lg:leading-none"
+        className="m-0 min-w-0 flex-1 break-words text-left text-[1.375rem] text-[#d36838] sm:text-[1.625rem] lg:text-[1.75rem]"
+        style={titleFont}
       >
         {title}
       </h1>

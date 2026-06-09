@@ -1,11 +1,13 @@
 import AppContainer from "@/components/layout/AppContainer";
+import { footerFont } from "@/config/fonts";
 
 export default function Footer() {
   return (
     <footer className="mt-auto bg-[#181512]">
       <AppContainer>
         <div
-          className="py-4 text-center text-sm font-semibold leading-[1.45] text-white"
+          className="py-4 text-center text-sm text-white"
+          style={footerFont}
         >
           Copyright &copy; 2026 FH Liquidation Auction Tool All Rights Reserved.
           <br />

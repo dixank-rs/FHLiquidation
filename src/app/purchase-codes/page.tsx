@@ -19,7 +19,7 @@ import {
   USER_OPTIONS,
   VENDOR_OPTIONS,
 } from "@/data/mockPurchaseCodes";
-import { boldFontStyle } from "@/config/fonts";
+import { boldFont, labelFont } from "@/config/fonts";
 import { FormEvent, useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 
 const inputBaseClass =
@@ -53,7 +53,7 @@ type FieldProps = {
 function FormField({ id, label, required, error, children }: FieldProps) {
   return (
     <div className="mb-4">
-      <label className="mb-2 block text-base text-[#181512]" style={boldFontStyle} htmlFor={id}>
+      <label className="mb-2 block text-[#181512]" style={labelFont} htmlFor={id}>
         {label}
         {required ? <span className="text-[#dc3545]">*</span> : null}
       </label>
@@ -452,7 +452,7 @@ export default function PurchaseCodesPage() {
                         <span
                           id="pc-margin-suffix"
                           className="inline-flex items-center rounded-r-[5px] border border-l-0 border-[#ced4da] bg-[#e9ecef] px-3 text-base text-[#181512]"
-                          style={boldFontStyle}
+                          style={boldFont}
                         >
                           %
                         </span>
@@ -494,7 +494,7 @@ export default function PurchaseCodesPage() {
                     <div className="mb-4">
                       <span
                         className="mb-2 hidden text-base md:block"
-                        style={boldFontStyle}
+                        style={boldFont}
                         aria-hidden="true"
                       >
                         &nbsp;
@@ -508,8 +508,8 @@ export default function PurchaseCodesPage() {
                           onChange={(e) => updateForm({ allSkusAreLps: e.target.checked })}
                         />
                         <label
-                          className="mb-0 cursor-pointer text-base text-[#181512]"
-                          style={boldFontStyle}
+                          className="mb-0 cursor-pointer text-[#181512]"
+                          style={labelFont}
                           htmlFor="pc-all-lps"
                         >
                           All SKU are LPs

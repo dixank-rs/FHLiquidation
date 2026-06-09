@@ -1,11 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-muli), sans-serif;
+  --font-heading: var(--font-muli), sans-serif;
+  --font-auth: var(--font-muli), sans-serif;
+}
+
 :root {
   --fhi-header-bg: #e0e0db;
   --fhi-body-bg: #f0f0ed;
   --fhi-container-max: 1440px;
-  --fhi-header-height: 4rem; /* 64px */
-  --fhi-page-gap: 1.25rem; /* 20px — space below nav and below page title */
+  --fhi-header-height: 4rem;
+  --fhi-page-gap: 1.25rem;
+  --fhi-text: #181512;
+  --fhi-text-muted: #6b6762;
+  --fhi-text-subtle: #8a8680;
 }
 
 html,
@@ -16,9 +25,34 @@ body {
 
 body {
   margin: 0;
-  color: #181512;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
+  color: var(--fhi-text);
+  font-family: var(--font-muli), sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-muli), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+strong {
+  font-weight: 700;
 }
 
 /*

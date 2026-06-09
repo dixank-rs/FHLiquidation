@@ -26,7 +26,7 @@
 
 .pageTop h1 {
   margin: 0;
-  font-family: tokens.$theme-font-bold;
+  font-family: tokens.$theme-font-family;
   font-weight: tokens.$theme-font-weight-bold;
   font-size: 2rem;
   color: tokens.$theme-dark;
@@ -82,7 +82,7 @@
 .auctionLink {
   color: tokens.$theme-dark;
   text-decoration: none;
-  font-family: tokens.$theme-font-semibold;
+  font-family: tokens.$theme-font-family;
   font-weight: tokens.$theme-font-weight-semibold;
 }
 

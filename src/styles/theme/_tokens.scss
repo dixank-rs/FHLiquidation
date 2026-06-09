@@ -4,15 +4,9 @@ $theme-dark: #181512;
 $theme-border: #cbcbcb;
 $theme-danger: #dc3545;
 
-$theme-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-  sans-serif;
-
-$theme-font-regular: $theme-font-family;
-$theme-font-bold: $theme-font-family;
-$theme-font-semibold: $theme-font-family;
-$theme-font-light: $theme-font-family;
-
-$theme-font-weight-regular: 400;
-$theme-font-weight-bold: 700;
-$theme-font-weight-semibold: 600;
+$theme-font-family: var(--font-muli), sans-serif;
+$theme-font-family-heading: var(--font-muli), sans-serif;
 $theme-font-weight-light: 300;
+$theme-font-weight-regular: 400;
+$theme-font-weight-semibold: 600;
+$theme-font-weight-bold: 700;

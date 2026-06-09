@@ -6,7 +6,7 @@ import { IconDelete, IconDeleteDisabled, IconEdit, IconHelp } from "@/components
 import AppContainer, { contentPanelClass } from "@/components/layout/AppContainer";
 import PageHeader from "@/components/layout/PageHeader";
 import PageLayout from "@/components/layout/PageLayout";
-import { boldFontStyle } from "@/config/fonts";
+import { labelFont } from "@/config/fonts";
 import { FormEvent, useMemo, useState } from "react";
 
 type ConditionRow = {
@@ -158,8 +158,8 @@ export default function ConditionsPage() {
                 <form onSubmit={handleSubmit} noValidate>
                   <div className="mb-6">
                     <label
-                      className="mb-2 block text-base text-[#181512]"
-                      style={boldFontStyle}
+                      className="mb-2 block text-[#181512]"
+                      style={labelFont}
                       htmlFor="condition-name"
                     >
                       Name<span className="text-[#dc3545]">*</span>
@@ -186,8 +186,8 @@ export default function ConditionsPage() {
 
                   <div className="mb-6">
                     <label
-                      className="mb-2 block text-base text-[#181512]"
-                      style={boldFontStyle}
+                      className="mb-2 block text-[#181512]"
+                      style={labelFont}
                       htmlFor="condition-status"
                     >
                       Status

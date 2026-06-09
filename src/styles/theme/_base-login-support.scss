@@ -2,5 +2,8 @@
 
 html,
 body {
-  font-family: tokens.$theme-font-regular;
+  font-family: tokens.$theme-font-family;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
