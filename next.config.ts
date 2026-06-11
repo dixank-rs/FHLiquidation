@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
+  sassOptions: {
+    additionalData: `$base-path: "${basePath}";`,
+  },
 };
 
 export default nextConfig;
