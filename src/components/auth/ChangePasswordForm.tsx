@@ -349,9 +349,8 @@ export default function ChangePasswordForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="mx-auto w-full max-w-5xl">
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-0">
-        {/* Row 1 left: current + new passwords */}
-        <div className="order-1 flex min-w-0 flex-col gap-6 lg:col-start-1 lg:row-start-1 lg:pr-2">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-x-8">
+        <div className="flex min-w-0 flex-col gap-6">
           <PasswordField
             id="current-password"
             label="Current Password"
@@ -381,17 +380,9 @@ export default function ChangePasswordForm() {
             onBlur={() => setNewBlurred(true)}
             onToggleVisibility={() => setShowNew((prev) => !prev)}
           />
-        </div>
 
-        {/* Requirements — between new & confirm on mobile; right column on desktop */}
-        <div className="order-2 min-w-0 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-start lg:border-l lg:border-[#ececea] lg:pl-8">
-          <div className="lg:sticky lg:top-[calc(var(--fhi-header-height)+var(--fhi-page-gap)+0.5rem)]">
-            {requirementsPanel}
-          </div>
-        </div>
+          <div className="lg:hidden">{requirementsPanel}</div>
 
-        {/* Row 2 left: confirm + actions */}
-        <div className="order-3 flex min-w-0 flex-col gap-6 border-t border-[#ececea] pt-6 lg:col-start-1 lg:row-start-2 lg:border-t-0 lg:pr-2 lg:pt-0">
           <PasswordField
             id="confirm-password"
             label="Confirm Password"
@@ -425,6 +416,10 @@ export default function ChangePasswordForm() {
               Reset
             </Button>
           </FormActions>
+        </div>
+
+        <div className="hidden min-w-0 lg:flex lg:items-center lg:border-l lg:border-[#ececea] lg:pl-8">
+          <div className="w-full">{requirementsPanel}</div>
         </div>
       </div>
     </form>
