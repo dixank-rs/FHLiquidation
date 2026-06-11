@@ -1,4 +1,5 @@
 import {
+  BadgeDollarSign,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -7,9 +8,15 @@ import {
   EyeOff,
   FileSpreadsheet,
   FileText,
+  Link2,
   List,
+  MapPin,
   Menu,
+  Package,
   Pencil,
+  Printer,
+  QrCode,
+  Tag,
   Trash2,
   X,
   ZoomIn,
@@ -110,4 +117,32 @@ export function IconChevronLeft(props: LucideProps) {
 
 export function IconChevronRight(props: LucideProps) {
   return <ChevronRight size={iconSizeMd} strokeWidth={2} {...hidden} {...props} />;
+}
+
+export function IconLink(props: LucideProps) {
+  return <Link2 size={iconSizeSm} strokeWidth={2} className="text-[#6c757d]" {...hidden} {...props} />;
+}
+
+export function IconQrCode(props: LucideProps) {
+  return <QrCode size={iconSizeSm} strokeWidth={2} className="text-[#d36838]" {...hidden} {...props} />;
+}
+
+export function IconPackage(props: LucideProps) {
+  return <Package size={iconSizeSm} strokeWidth={2} className="text-[#d36838]" {...hidden} {...props} />;
+}
+
+export function IconMapPin(props: LucideProps) {
+  return <MapPin size={iconSizeSm} strokeWidth={2} className="text-[#6c757d]" {...hidden} {...props} />;
+}
+
+export function IconPrinter(props: LucideProps) {
+  return <Printer size={iconSizeSm} strokeWidth={2} {...hidden} {...props} />;
+}
+
+export function IconTag(props: LucideProps) {
+  return <Tag size={iconSizeSm} strokeWidth={2} {...hidden} {...props} />;
+}
+
+export function IconBadgeDollarSign(props: LucideProps) {
+  return <BadgeDollarSign size={iconSizeSm} strokeWidth={2} {...hidden} {...props} />;
 }

@@ -39,6 +39,10 @@ type DataTableProps<T> = {
   stickyHeader?: boolean;
   /** Max height of scroll area, e.g. "min(70vh, 560px)". Enables vertical scroll. */
   maxTableHeight?: string;
+  /** Brand-tinted hover/active styles for clickable rows (use with onRowClick). */
+  selectableHighlight?: boolean;
+  /** Marks a row as selected (e.g. click-to-select tables). */
+  isRowSelected?: (row: T) => boolean;
 };
 
 export default function DataTable<T extends Record<string, unknown>>({
@@ -58,6 +62,8 @@ export default function DataTable<T extends Record<string, unknown>>({
   horizontalScroll = false,
   stickyHeader = false,
   maxTableHeight,
+  selectableHighlight = false,
+  isRowSelected,
 }: DataTableProps<T>) {
   const [searchTerm, setSearchTerm] = useState("");
   const [entriesPerPage, setEntriesPerPage] = useState(defaultEntriesPerPage);
@@ -234,6 +240,16 @@ export default function DataTable<T extends Record<string, unknown>>({
   const headerCellClass = horizontalScroll ? "whitespace-nowrap" : "";
   const headerLabelClass = "flex items-center gap-1 whitespace-nowrap";
   const tableIconClass = "[&_svg]:size-[15px]";
+  const isSelectableRow = Boolean(onRowClick);
+  const rowHoverClass = selectableHighlight && isSelectableRow
+    ? "cursor-pointer transition-colors hover:bg-[#fff5f0] hover:shadow-[inset_3px_0_0_#d36838] active:bg-[#fdf6f3] active:shadow-[inset_3px_0_0_#bb5c2f]"
+    : isSelectableRow
+      ? "cursor-pointer transition-colors hover:bg-[#f9f9f9]"
+      : "transition-colors hover:bg-[#f9f9f9]";
+  const cellHoverClass =
+    selectableHighlight && isSelectableRow
+      ? "group-hover:bg-[#fff5f0] group-active:bg-[#fdf6f3]"
+      : "group-hover:bg-[#f9f9f9]";
 
   const isLastStickyColumn = (columnIndex: number) => {
     const column = columns[columnIndex];
@@ -351,17 +367,25 @@ export default function DataTable<T extends Record<string, unknown>>({
                 </td>
               </tr>
             ) : (
-              currentData.map((row, index) => (
+              currentData.map((row, index) => {
+                const selected = isRowSelected?.(row) ?? false;
+                const selectedRowClass = selected
+                  ? "bg-[#fff5f0] shadow-[inset_3px_0_0_#d36838]"
+                  : "";
+                const selectedCellClass = selected ? "bg-[#fff5f0]" : "bg-white";
+
+                return (
                 <tr
                   key={getRowKey ? getRowKey(row) : index}
-                  className={`group transition-colors hover:bg-[#f9f9f9] ${onRowClick ? "cursor-pointer" : ""}`}
+                  className={`group ${rowHoverClass} ${selectedRowClass}`}
                   onClick={(event) => handleRowClick(row, event)}
+                  aria-selected={selected || undefined}
                 >
                   {columns.map((column, columnIndex) => (
                     <td
                       key={column.key}
                       style={getStickyCellStyle(columnIndex, column)}
-                      className={`border border-[#ddd] bg-white px-4 py-3 text-[13px] text-[#181512] group-hover:bg-[#f9f9f9] ${
+                      className={`border border-[#ddd] px-4 py-3 text-[13px] text-[#181512] transition-colors ${selectedCellClass} ${selected ? "" : cellHoverClass} ${
                         column.sticky && horizontalScroll ? `z-[2] ${stickyEdgeClass(columnIndex)}` : ""
                       } ${tableIconClass} ${column.className || ""}`}
                     >
@@ -369,7 +393,8 @@ export default function DataTable<T extends Record<string, unknown>>({
                     </td>
                   ))}
                 </tr>
-              ))
+                );
+              })
             )}
           </tbody>
         </table>

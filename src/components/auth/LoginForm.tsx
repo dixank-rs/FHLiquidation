@@ -12,14 +12,14 @@ import { useRouter } from "next/navigation";
 
 type FormErrors = {
   email?: string;
-  pin?: string;
+  password?: string;
 };
 
 export default function LoginForm() {
   const router = useRouter();
-  const [email, setEmail] = useState("superadmin@fhl.com");
-  const [pin, setPin] = useState("1234");
-  const [showPin, setShowPin] = useState(false);
+  const [email, setEmail] = useState("admin@fhl.com");
+  const [password, setPassword] = useState("Admin@123");
+  const [showPassword, setShowPassword] = useState(false);
   const [keepSignedIn, setKeepSignedIn] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
@@ -33,10 +33,8 @@ export default function LoginForm() {
       nextErrors.email = "Please enter a valid email address.";
     }
 
-    if (!pin.trim()) {
-      nextErrors.pin = "PIN is required.";
-    } else if (!/^\d{4}$/.test(pin.trim())) {
-      nextErrors.pin = "PIN must be exactly 4 digits.";
+    if (!password.trim()) {
+      nextErrors.password = "Password is required.";
     }
 
     return nextErrors;
@@ -130,40 +128,37 @@ export default function LoginForm() {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="PIN" className="mb-2 block text-[#181512]" style={authLabelFont}>
-                  Pin<span className="text-[#dc3545]"> *</span>
+                <label htmlFor="Password" className="mb-2 block text-[#181512]" style={authLabelFont}>
+                  Password<span className="text-[#dc3545]"> *</span>
                 </label>
                 <div className="relative flex overflow-hidden rounded-lg border border-[#d36838] bg-white focus-within:border-[#bb5c2f]">
                   <span className="flex items-center px-3 text-[#a8a49e]">
                     <Lock size={16} strokeWidth={2} aria-hidden />
                   </span>
                   <input
-                    type={showPin ? "text" : "password"}
-                    id="PIN"
-                    name="PIN"
+                    type={showPassword ? "text" : "password"}
+                    id="Password"
+                    name="Password"
                     className="min-w-0 flex-1 border-0 bg-transparent py-2.5 pr-11 text-[0.9375rem] outline-none sm:py-3"
-                    maxLength={4}
-                    inputMode="numeric"
-                    pattern="\d{4}"
+                    autoComplete="current-password"
                     required
-                    value={pin}
+                    value={password}
                     onChange={(event) => {
-                      const nextPin = event.target.value.replace(/\D/g, "").slice(0, 4);
-                      setPin(nextPin);
-                      if (errors.pin) setErrors((prev) => ({ ...prev, pin: undefined }));
+                      setPassword(event.target.value);
+                      if (errors.password) setErrors((prev) => ({ ...prev, password: undefined }));
                     }}
                   />
                   <button
                     type="button"
                     className="absolute right-3 top-1/2 inline-flex -translate-y-1/2 cursor-pointer bg-transparent p-0"
-                    onClick={() => setShowPin((prev) => !prev)}
-                    aria-label="Toggle PIN visibility"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    aria-label="Toggle password visibility"
                   >
-                    <IconPinVisibility visible={showPin} />
+                    <IconPinVisibility visible={showPassword} />
                   </button>
                 </div>
-                <div className="mt-1 w-full text-sm text-[#dc3545]" id="pinError" role="alert">
-                  {errors.pin}
+                <div className="mt-1 w-full text-sm text-[#dc3545]" id="passwordError" role="alert">
+                  {errors.password}
                 </div>
               </div>
 

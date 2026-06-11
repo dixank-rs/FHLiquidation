@@ -227,14 +227,14 @@ export default function UsersPage() {
                           className="float-end border-0 bg-transparent p-0 text-base leading-[1.4] text-[#0d6efd] no-underline hover:underline"
                           onClick={handleGeneratePin}
                         >
-                          Generate Pin
+                          Generate Password
                         </button>
                         <label
                           className="mb-2 block text-[#181512]"
                           style={labelFont}
                           htmlFor="user-pin"
                         >
-                          Pin<span className="text-[#dc3545]">*</span>
+                          Password<span className="text-[#dc3545]">*</span>
                         </label>
                       </div>
                       <div className="relative">
