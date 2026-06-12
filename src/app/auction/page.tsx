@@ -399,34 +399,44 @@ export default function AuctionPage() {
         <PageHeader
           title="Select Auction"
           actions={
-            <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3">
-              {!showCompleted && hasSelectedProcessing ? (
-                <Button type="button" variant="primary" size="sm" onClick={handleMarkComplete}>
-                  Mark Complete
-                </Button>
-              ) : null}
-              {showCompleted && hasSelectedComplete ? (
-                <Button type="button" variant="primary" size="sm" onClick={handleMarkOpen}>
-                  Mark Open
-                </Button>
-              ) : null}
-              <div className="flex items-center gap-2">
-                <input
-                  className="h-[18px] w-[18px] cursor-pointer rounded-[3px] border border-[#999] bg-white accent-[#d36838]"
-                  type="checkbox"
-                  checked={showCompleted}
-                  onChange={(e) => handleShowCompletedChange(e.target.checked)}
-                  id="showCompleted"
-                />
-                <label className="mb-0 cursor-pointer text-[14px] leading-[1.5] text-[#181512]" htmlFor="showCompleted">
-                  Show Completed Auctions
-                </label>
-              </div>
+            <div className="flex items-center gap-2">
+              <input
+                className="h-[18px] w-[18px] cursor-pointer rounded-[3px] border border-[#999] bg-white accent-[#d36838]"
+                type="checkbox"
+                checked={showCompleted}
+                onChange={(e) => handleShowCompletedChange(e.target.checked)}
+                id="showCompleted"
+              />
+              <label className="mb-0 cursor-pointer text-[14px] leading-[1.5] text-[#181512]" htmlFor="showCompleted">
+                Show Completed
+              </label>
             </div>
           }
         />
 
         <div className={contentPanelClass}>
+          <div className="mb-3 grid grid-cols-2 gap-2 sm:flex sm:items-center sm:justify-end sm:gap-3">
+            <Button
+              type="button"
+              variant="primary"
+              size="sm"
+              className="min-w-0 w-full px-2 text-xs sm:w-[12rem] sm:max-w-[12rem] sm:shrink-0 sm:px-4 sm:text-sm"
+              onClick={handleMarkComplete}
+              disabled={!hasSelectedProcessing}
+            >
+              Mark Complete
+            </Button>
+            <Button
+              type="button"
+              variant="primary"
+              size="sm"
+              className="min-w-0 w-full px-2 text-xs sm:w-[12rem] sm:max-w-[12rem] sm:shrink-0 sm:px-4 sm:text-sm"
+              onClick={handleMarkOpen}
+              disabled={!hasSelectedComplete}
+            >
+              Mark Open
+            </Button>
+          </div>
           <DataTable
             data={filteredAuctions}
             columns={columns}
