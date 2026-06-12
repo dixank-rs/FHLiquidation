@@ -12,6 +12,19 @@ export const MOCK_AUCTION_IDS = [
   "ABABY015",
   "c21f44f2-58c5-4b6e-9d22-08de656f0ad1",
   "a82f44f2-58c5-4b6e-9d22-08de656f0bb2",
+  "BTEST0602A1",
+  "FHMAY2025",
+  "AUCTION2401",
+  "INVTEST03",
+  "LOTSHIP01",
+  "WAREHOUSE22",
+  "FHJUN2025",
+  "PALLET100",
+  "MCLEM2406",
+  "STDFURN45",
+  "BATCH077",
+  "CLEARANCE9",
+  "PREPLOT33",
 ] as const;
 
 export function generateAuctionIdParams() {
