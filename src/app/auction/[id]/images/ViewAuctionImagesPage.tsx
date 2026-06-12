@@ -14,11 +14,11 @@ import { boldFont } from "@/config/fonts";
 import { assetPath } from "@/config/site";
 
 const IMAGE_SRCS = [
-  assetPath("/theme/images/v-img.jpg"),
-  assetPath("/theme/images/v-img1.jpg"),
-  assetPath("/theme/images/v-img2.jpg"),
-  assetPath("/theme/images/v-img3.jpg"),
-  assetPath("/theme/images/v-img4.jpg"),
+  assetPath("/images/sample1.webp"),
+  assetPath("/images/sample2.webp"),
+  assetPath("/images/sample1.webp"),
+  assetPath("/images/sample2.webp"),
+  assetPath("/images/sample1.webp"),
 ] as const;
 
 const galleryGridClass =

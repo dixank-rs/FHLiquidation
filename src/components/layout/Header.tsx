@@ -117,13 +117,7 @@ const defaultNavEntries: NavEntry[] = [
         label: "Permissions",
         href: "/permissions",
         description: "Manage permissions",
-      },
-      {
-        key: "conditions",
-        label: "Conditions",
-        href: "/conditions",
-        description: "Manage item conditions",
-      },
+      }
     ],
   },
   {
