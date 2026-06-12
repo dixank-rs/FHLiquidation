@@ -158,7 +158,7 @@ export default function AuctionPage() {
       render: (row) => (
         <Link
           href={`/auction/${row.id}`}
-          className="text-[13px] font-normal text-[#d36838] no-underline hover:underline"
+          className="text-[13px] font-normal text-[#d36838] underline hover:text-[#bb5c2f]"
           onClick={(e) => e.stopPropagation()}
         >
           {row.name}
