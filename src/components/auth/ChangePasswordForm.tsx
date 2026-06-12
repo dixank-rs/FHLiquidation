@@ -146,8 +146,6 @@ type PasswordRequirementsPanelProps = {
   passwordRules: PasswordRules;
   strength: ReturnType<typeof getStrengthLabel>;
   metCount: number;
-  passwordsMatch: boolean;
-  confirmPassword: string;
 };
 
 function PasswordRequirementsPanel({
@@ -155,8 +153,6 @@ function PasswordRequirementsPanel({
   passwordRules,
   strength,
   metCount,
-  passwordsMatch,
-  confirmPassword,
 }: PasswordRequirementsPanelProps) {
   const allMet = isPasswordStrong(passwordRules);
 
@@ -204,13 +200,9 @@ function PasswordRequirementsPanel({
         {PASSWORD_REQUIREMENTS.map((req) => (
           <RequirementItem key={req.key} met={passwordRules[req.key]} label={req.label} />
         ))}
-        <RequirementItem
-          met={passwordsMatch}
-          label={confirmPassword.trim() ? "Passwords match" : "Passwords must match"}
-        />
       </ul>
 
-      {allMet && passwordsMatch ? (
+      {allMet ? (
         <p className="mb-0 mt-4 rounded-[5px] border border-[#badbcc] bg-[#d1e7dd] px-3 py-2 text-xs font-medium text-[#0f5132] sm:text-sm">
           Your password meets all requirements.
         </p>
@@ -241,7 +233,6 @@ export default function ChangePasswordForm() {
   const passwordRules = useMemo(() => checkPasswordRules(newPassword), [newPassword]);
   const strength = useMemo(() => getStrengthLabel(passwordRules), [passwordRules]);
   const metCount = PASSWORD_REQUIREMENTS.filter((req) => passwordRules[req.key]).length;
-  const passwordsMatch = newPassword.length > 0 && confirmPassword.length > 0 && newPassword === confirmPassword;
 
   const validateForm = (): FormErrors => {
     const nextErrors: FormErrors = {};
@@ -342,8 +333,6 @@ export default function ChangePasswordForm() {
       passwordRules={passwordRules}
       strength={strength}
       metCount={metCount}
-      passwordsMatch={passwordsMatch}
-      confirmPassword={confirmPassword}
     />
   );
 
